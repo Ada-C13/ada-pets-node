@@ -16,17 +16,24 @@ const listPets = () => {
   })
 
   .catch((error) => {
-    setError("Please check the url of the get request.");
+    setError(`Response unsuccessful.`);
   });
 };
 
 const showDetails = (selectedPetId) => {
+  axios.get(BASE_URL + selectedPetId)
+
+  .then((response) => {
+    setResult(response.data);
+  })
+
+  .catch((error) => {
+    setError(`Request failed with status code 404 and failed to show details and select pet`);
+  });
+
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
-    
   }
-
-  // Fill out as part of Wave 2.
 };
 
 const removePet = (selectedPetId) => {
