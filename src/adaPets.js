@@ -19,7 +19,7 @@ setError should be passed an error message.
   .then((response) => {
     setResult(response.data);
   })
-  .catch(() => {
+  .catch((error) => {
     setError("Something went wrong");
   });
 }
@@ -29,14 +29,20 @@ const showDetails = (selectedPetId) => {
     setError("You tried to show details for a pet without selecting it!");
     
   }
-
   // Fill out as part of Wave 2.
 /*Function to complete
 showDetails
 setResult should be passed the Object that represents the pet.
 setError should be passed an error message.
 */
-};
+  axios.get(BASE_URL + selectedPetId)
+  .then((response) => {
+    setResult(response.data);
+    })
+  .catch((error) => {
+    setError("Failed to get details with a 404 code")
+  });
+}
 
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
