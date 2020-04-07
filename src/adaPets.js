@@ -9,7 +9,12 @@ const BASE_URL = 'http://localhost:3000/pets/';
 
 // Option functions.
 const listPets = () => {
-  // Fill out as part of Wave 1.
+// Fill out as part of Wave 1.
+/*Function to complete
+listPets
+setResult should be passed the array of pets.
+setError should be passed an error message. 
+*/
   axios.get(BASE_URL)
   .then((response) => {
     setResult(response.data);
@@ -26,6 +31,11 @@ const showDetails = (selectedPetId) => {
   }
 
   // Fill out as part of Wave 2.
+/*Function to complete
+showDetails
+setResult should be passed the Object that represents the pet.
+setError should be passed an error message.
+*/
 };
 
 const removePet = (selectedPetId) => {
@@ -33,12 +43,23 @@ const removePet = (selectedPetId) => {
     setError("You tried to remove a pet without selecting it!");
     
   }
-
-  // Fill out as part of Wave 3.
+// Fill out as part of Wave 3.
+/*
+Function to complete (call Api)
+removePet
+setResult should be passed a success message. 
+setError should be passed an error message.
+*/
 };
 
 const addPet = (petInfo) => {
-  // Fill out as part of Wave 4.
+// Fill out as part of Wave 4.
+/*
+Function to complete (call Api)
+addPet
+setResult should be passed the new pet (from the API).
+setError should be passed an error message.
+*/
 };
 
 // Use Node-style exports to export functions for tests and main.
