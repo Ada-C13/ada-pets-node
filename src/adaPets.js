@@ -26,6 +26,15 @@ const showDetails = (selectedPetId) => {
   }
 
   // Fill out as part of Wave 2.
+
+  axios.get(BASE_URL+selectedPetId)
+  .then((response)=>{
+    setResult(response.data);
+  })
+  .catch((error)=>{
+    setError(`There is an error when you tried show details or select error:${error}`);
+  });
+
 };
 
 const removePet = (selectedPetId) => {
