@@ -19,8 +19,8 @@ const listPets = () => {
     })    
     setResult(pets); 
   })
-  .catch(response => {    
-    setError('API call failed: ' + response.status + ' error')
+  .catch(error => {    
+    setError('API call failed: ' + error.response.status + ' error')
   });
 };
 
@@ -30,21 +30,26 @@ const showDetails = (selectedPetId) => {
   } else {    
     axios.get(BASE_URL + selectedPetId)
     .then(response => {         
-      setResult(response.data); 
     })
-    .catch(response => {    
-      setError('API call failed: ' + response.response.status + ' error')
+    .catch(error => {    
+      setError('API call failed: ' + error.response.status + ' error')
     });
   };
 };
 
+// Once a pet is adopted we don't still want to show it on the list
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
-    
+  } else {
+    axios.delete(BASE_URL + selectedPetId)
+    .then(response => {
+      setResult('Pet #' + selectedPetId + ' has been successfully removed from the list.'); 
+    })
+    .catch(error => {
+      setError('API call failed: ' + error.response.status + ' error. Pet not removed from list')
+    });     
   }
-
-  // Fill out as part of Wave 3.
 };
 
 const addPet = (petInfo) => {
