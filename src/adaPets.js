@@ -7,9 +7,28 @@ const setError = result.setError;
 
 const BASE_URL = 'http://localhost:3000/pets/';
 
+
+// To do this fill out the listPets function. This will need to make a call to the Pets API and should setResult a list of objects containing (at least) the pet's id and name and should call setError with an error message if the request fails.
+
+// You can run the Wave 1 tests with jest test/wave1.test.js. 
+
+// These tests use a mocking library to do what we used VCR to do in Ruby. In each test you'll see a mock.onGet or mock.onPost to set up what should happen for that particular test before the actual assertions.
+
+// Function to complete
+// listPets
+// setResult should be passed the array of pets.
+// setError should be passed an error message. (You may need to write this message.)
+
 // Option functions.
 const listPets = () => {
   // Fill out as part of Wave 1.
+  axios.get(BASE_URL)
+  .then((response) => {
+    setResult(response.data);
+  })
+  .catch((error) => {
+    setError("There was an error");
+  });
 };
 
 const showDetails = (selectedPetId) => {
