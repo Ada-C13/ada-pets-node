@@ -25,6 +25,7 @@ const showDetails = (selectedPetId) => {
     setError("You tried to show details for a pet without selecting it!");
   }
 
+  // Fill out as part of Wave 2.
   axios.get(`${BASE_URL}${selectedPetId}`)
     .then((response) => {
       setResult(response.data);
@@ -33,17 +34,23 @@ const showDetails = (selectedPetId) => {
       const errorStatus = error.response.status.toString();
       setError(`Error status: ${errorStatus}\nError message: You failed to show details. You must select a pet first`)
     })
-
-  // Fill out as part of Wave 2.
 };
 
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
-    
   }
 
   // Fill out as part of Wave 3.
+  axios.delete(`${BASE_URL}${selectedPetId}`)
+    .then((response) => {
+      setResult(response.data);
+    })
+    .catch((error) => {
+      console.log(error.response);
+      setError(`Error status: ${error.response.status}\n
+      Error message: You failed to remove a pet. You must select a pet first`)
+    })
 };
 
 const addPet = (petInfo) => {
