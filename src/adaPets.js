@@ -9,7 +9,16 @@ const BASE_URL = 'http://localhost:3000/pets/';
 
 // Option functions.
 const listPets = () => {
-  // Fill out as part of Wave 1.
+  let allPets = {}
+  
+  axios.get(BASE_URL)
+  .then((response) => {
+    return setResult(response.data);
+  })
+  .catch((error) => {
+    return setError(`Oh bother... I encountered the following ERROR: ${error.message}.`);
+  });
+  
 };
 
 const showDetails = (selectedPetId) => {
