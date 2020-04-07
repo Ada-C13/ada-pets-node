@@ -15,8 +15,7 @@ const listPets = () => {
       setResult(response.data);
     })
     .catch((error) => {
-      console.log(error.response);
-      setError(`There was a(n) error from the API`);
+      setError(`There was an error from the API`);
     });
 };
 
@@ -26,13 +25,13 @@ const showDetails = (selectedPetId) => {
   }
 
   // Fill out as part of Wave 2.
+  
   axios.get(`${BASE_URL}${selectedPetId}`)
     .then((response) => {
       setResult(response.data);
     })
     .catch((error) => {
-      const errorStatus = error.response.status.toString();
-      setError(`Error status: ${errorStatus}\nError message: You failed to show details. You must select a pet first`)
+      setError(`\n - Error status: 404\n - Error message: You failed to show details. You must select a pet first`)
     })
 };
 
@@ -47,9 +46,8 @@ const removePet = (selectedPetId) => {
       setResult(response.data);
     })
     .catch((error) => {
-      console.log(error.response);
-      setError(`Error status: ${error.response.status}\n
-      Error message: You failed to remove a pet. You must select a pet first`)
+
+      setError(`\n - Error status: ${error.response.status}\n - Error message: You failed to remove a pet. You must select a pet first`)
     })
 };
 
@@ -60,7 +58,7 @@ const addPet = (petInfo) => {
       setResult(response.data);
     })
     .catch((error) => {
-      setError(`Error status: ${error.response.status}\nError message: You failed to add a pet.`);
+      setError(`\n - Error status: ${error.response.status}\n - Error message: You failed to add a pet.`);
     });
 };
 
