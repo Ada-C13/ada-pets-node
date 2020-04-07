@@ -11,11 +11,11 @@ const BASE_URL = 'http://localhost:3000/pets/';
 const listPets = () => {
   axios.get(BASE_URL)
   .then((response)=> {
-    setResult(response.data)
+    setResult(response.data);
   })
   .catch((error) => {
-    setError(`This is the error message ${error.message}`)
-  })
+    setError(`This is the error message ${error.message}`);
+  });
 };
 
 const showDetails = (selectedPetId) => {
@@ -25,11 +25,11 @@ const showDetails = (selectedPetId) => {
 
   axios.get(`${BASE_URL}${selectedPetId}`)
   .then((response) => {
-    setResult(response.data)
+    setResult(response.data);
   })
   .catch((error) => {
-    setError(`select show details ${error.message}`)
-  })
+    setError(`select show details ${error.message}`);
+  });
 };
 
 const removePet = (selectedPetId) => {
@@ -39,23 +39,21 @@ const removePet = (selectedPetId) => {
 
   axios.delete(`${BASE_URL}${selectedPetId}`)
   .then((response) => {
-    console.log(response)
-    setResult(response.status)
+    setResult(response.status);
   })
   .catch((error) => {
-    setError(`remove select ${error.message}`)
-  })
+    setError(`remove select ${error.message}`);
+  });
 };
 
 const addPet = (petInfo) => {
-
   axios.post(BASE_URL, petInfo)
   .then((response) => {
-    setResult(response.data)
+    setResult(response.data);
   })
   .catch((error) => {
-    setError(`add ${error.message}`)
-  })
+    setError(`add ${error.message}`);
+  });
 };
 
 // Use Node-style exports to export functions for tests and main.
