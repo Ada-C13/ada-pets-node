@@ -48,6 +48,71 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
+    },
+    {
+      "id": 7,
+      "name": "Rex",
+      "species": "Dog",
+      "age": 9,
+      "owner": "Nikki"
+    },
+    {
+      "id": 8
+    },
+    {
+      "id": 9
+    },
+    {
+      "id": 11
+    },
+    {
+      "id": 12
+    },
+    {
+      "id": 14
+    },
+    {
+      "id": 15
+    },
+    {
+      "id": 16
+    },
+    {
+      "id": 17
+    },
+    {
+      "id": 18
+    },
+    {
+      "id": 19
+    },
+    {
+      "id": 20
+    },
+    {
+      "id": 21
+    },
+    {
+      "name": "Arthur",
+      "species": "Dog",
+      "age": 10,
+      "owner": "Nikki",
+      "id": 22
+    },
+    {
+      "name": "Arthur",
+      "species": "Dog",
+      "age": 10,
+      "owner": "Mair",
+      "id": 23
+    },
+    {
+      "name": "doggie",
+      "id": 24
+    },
+    {
+      "owner": "Nikki",
+      "id": 25
     }
   ]
 }
