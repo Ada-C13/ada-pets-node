@@ -54,7 +54,7 @@ const removePet = (selectedPetId) => {
     })
     .catch((error) => {
       //ASSIGNMENT REQ: setError should be passed an error message. (You may need to write this message.)
-      setError("404: Request to remove pet failed.");
+      setError(`Error ${error.response.status}: Request to remove pet failed.`);
     });
   }
 };
