@@ -29,7 +29,8 @@ const showDetails = (selectedPetId) => {
     setError("You tried to show details for a pet without selecting it!");
   } else {    
     axios.get(BASE_URL + selectedPetId)
-    .then(response => {         
+    .then(response => {      
+      setResult(response.data); 
     })
     .catch(error => {    
       setError('API call failed: ' + error.response.status + ' error')
@@ -37,7 +38,6 @@ const showDetails = (selectedPetId) => {
   };
 };
 
-// Once a pet is adopted we don't still want to show it on the list
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
@@ -53,7 +53,13 @@ const removePet = (selectedPetId) => {
 };
 
 const addPet = (petInfo) => {
-  // Fill out as part of Wave 4.
+  axios.post(BASE_URL, petInfo)
+  .then(response => {    
+    setResult(response.data); 
+  })
+  .catch(error => {
+    setError('API call failed: ' + error.response.status + ' error. Pet not added to list')
+  })
 };
 
 // Use Node-style exports to export functions for tests and main.
