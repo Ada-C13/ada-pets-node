@@ -11,11 +11,9 @@ const BASE_URL = 'http://localhost:3000/pets/';
 const listPets = () => {
   let petList = [];
 
-  axios.get('http://localhost:3000/pets/')
-    .then((response) => {
-      // console.log(pets.data[0].id);
-      const pets = response.data;
-      for (let pet of pets) {
+  axios.get(BASE_URL)
+    .then((pets) => {
+      for (let pet of pets.data) {
         let petInfo = {};
 
         petInfo['id'] = pet.id;
@@ -27,17 +25,26 @@ const listPets = () => {
       setResult(petList);
     })
     .catch((error) => {
-      setError(`There was an ${error} with the API.`);
+      setError(`There was an error grabbing the list of all pets.`);
     });
 };
 
 const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
-    
   }
 
-  // Fill out as part of Wave 2.
+  axios.get(BASE_URL)
+    .then((pets) => {
+      for (let pet of pets.data) {
+        if (selectedPetId === pet.id) {
+          setResult(pet);
+        };
+      };
+    })
+    .catch((error) => {
+      setError(`There was an error locating this pet.`);
+    });
 };
 
 const removePet = (selectedPetId) => {
