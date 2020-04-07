@@ -36,18 +36,16 @@
       "owner": "Chris"
     },
     {
-      "id": 6,
-      "name": "Coco",
-      "species": "Dog",
-      "age": 11,
-      "owner": "Ada"
-    },
-    {
       "id": 7,
       "name": "Rex",
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
+    },
+    {
+      "options": {},
+      "name": "slash",
+      "id": 8
     }
   ]
 }

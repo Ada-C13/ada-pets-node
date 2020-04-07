@@ -11,11 +11,9 @@ const BASE_URL = 'http://localhost:3000/pets/';
 const listPets = () => {
   axios.get(BASE_URL)
   .then((response)=> {
-    // console.log(response.data)
     setResult(response.data)
   })
   .catch((error) => {
-    // console.log(`This is the error message ${error}`)
     setError(`This is the error message ${error.message}`)
   })
 };
@@ -27,7 +25,6 @@ const showDetails = (selectedPetId) => {
 
   axios.get(`${BASE_URL}${selectedPetId}`)
   .then((response) => {
-    console.log(response.data)
     setResult(response.data)
   })
   .catch((error) => {
