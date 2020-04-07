@@ -15,10 +15,8 @@ const listPets = () => {
     .then((pets) => {
       for (let pet of pets.data) {
         let petInfo = {};
-
         petInfo['id'] = pet.id;
         petInfo['name'] = pet.name;
-
         petList.push(petInfo);
       }
 
@@ -58,7 +56,16 @@ const removePet = (selectedPetId) => {
 };
 
 const addPet = (petInfo) => {
-  // Fill out as part of Wave 4.
+  console.log(petInfo);
+  axios.post(BASE_URL, petInfo)
+    .then((response) => {
+      // console.log(response.data);
+      console.log(response.request)
+      setResult('Successfully added pet to list.');
+    })
+    .catch((error) => {
+      setError('Failed to add pet to list.');
+    });
 };
 
 // Use Node-style exports to export functions for tests and main.
