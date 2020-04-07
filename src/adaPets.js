@@ -56,12 +56,12 @@ const removePet = (selectedPetId) => {
 };
 
 const addPet = (petInfo) => {
-  console.log(petInfo);
   axios.post(BASE_URL, petInfo)
     .then((response) => {
       // console.log(response.data);
       console.log(response.request)
-      setResult('Successfully added pet to list.');
+      setResult(petInfo);
+      // return response.data;
     })
     .catch((error) => {
       setError('Failed to add pet to list.');
