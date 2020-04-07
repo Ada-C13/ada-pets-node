@@ -34,23 +34,12 @@ const showDetails = (selectedPetId) => {
     setError('You tried to show details for a pet without selecting it!');
   } else {
     axios.get(BASE_URL + selectedPetId)
-    .then((response) => {
-      setResult(response.data);
-    })
-
-    // (pets) => {
-
-    //   for (let pet of pets.data) {
-    //     if (selectedPetId === pet.id) {
-    //       setResult(pet);
-    //     };
-    //   };
-
-    // }
-
-    .catch((error) => {
-      setError(`Failed with a 404 code to select and show details.`);
-    });
+      .then((response) => {
+        setResult(response.data);
+      })
+      .catch((error) => {
+        setError(`Failed with a 404 code to select and show details.`);
+      });
   };
 };
 
@@ -58,9 +47,11 @@ const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
     
-  }
-
-  // Fill out as part of Wave 3.
+  } else {
+    axios.post(BASE_URL + selectedPetId)
+      .then()
+      .catch();
+  };
 };
 
 const addPet = (petInfo) => {
