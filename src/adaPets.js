@@ -27,7 +27,7 @@ setError should be passed an error message.
 const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
-    
+
   }
   // Fill out as part of Wave 2.
 /*Function to complete
@@ -40,7 +40,7 @@ setError should be passed an error message.
     setResult(response.data);
     })
   .catch((error) => {
-    setError("Failed to get details with a 404 code")
+    setError("Failed with a 404 code to select and show details")
   });
 }
 
@@ -56,7 +56,14 @@ removePet
 setResult should be passed a success message. 
 setError should be passed an error message.
 */
-};
+  axios.delete(BASE_URL + selectedPetId)
+  .then((response) => {
+    setResult(response.data);
+    })
+  .catch((error) => {
+    setError("Failed to select and remove pet from database");
+  });
+}
 
 const addPet = (petInfo) => {
 // Fill out as part of Wave 4.
