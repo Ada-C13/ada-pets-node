@@ -66,14 +66,21 @@ setError should be passed an error message.
 }
 
 const addPet = (petInfo) => {
-// Fill out as part of Wave 4.
-/*
-Function to complete (call Api)
-addPet
-setResult should be passed the new pet (from the API).
-setError should be passed an error message.
-*/
-};
+  // Fill out as part of Wave 4.
+  /*
+  Function to complete (call Api, post)
+  addPet
+  setResult should be passed the new pet (from the API).
+  setError should be passed an error message.
+  */
+  axios.post(BASE_URL, petInfo)
+  .then((response) => {
+    setResult(petInfo);
+    })
+  .catch((error) => {
+    setError("Failed to select and add new pet to database")
+  });
+}
 
 // Use Node-style exports to export functions for tests and main.
 module.exports = {
