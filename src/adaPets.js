@@ -27,7 +27,7 @@ const showDetails = (selectedPetId) => {
     setResult(response.data);
   })
 
-  .catch((error) => {
+  .catch(() => {
     setError(`Request failed with status code 404 and failed to show details and select pet`);
   });
 
@@ -38,11 +38,11 @@ const showDetails = (selectedPetId) => {
 
 const removePet = (selectedPetId) => {
   axios.delete(BASE_URL + selectedPetId)
-    .then((response) => {
+    .then(() => {
       setResult('This pet has been removed because it found its forever home!');
     })
   
-    .catch((error) => {
+    .catch(() => {
       setError(`Request failed with status code 404 and failed to remove and selected pet`);
     });
   
@@ -52,7 +52,20 @@ const removePet = (selectedPetId) => {
 };
 
 const addPet = (petInfo) => {
-  // Fill out as part of Wave 4.
+  axios.post(BASE_URL, {
+    name: `${petInfo.name}`,
+    species: `${petInfo.species}`,
+    about: `${petInfo.about}`
+  })
+  
+  .then((response) => {
+    setResult(response.data);
+  })
+  
+  .catch((error) => {
+    console.log(error);
+    setError(`Failed to add pet with status code ${error.response.status}.`);
+  })
 };
 
 // Use Node-style exports to export functions for tests and main.
