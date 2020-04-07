@@ -16,7 +16,7 @@ const listPets = () => {
     })
     .catch((error) => {
       console.log(error.response);
-      return setError(`There was a(n) error from the API`);
+      setError(`There was a(n) error from the API`);
     });
 };
 
@@ -55,6 +55,13 @@ const removePet = (selectedPetId) => {
 
 const addPet = (petInfo) => {
   // Fill out as part of Wave 4.
+  axios.post(BASE_URL, petInfo)
+    .then((response) => {
+      setResult(response.data);
+    })
+    .catch((error) => {
+      setError(`Error status: ${error.response.status}\nError message: You failed to add a pet.`);
+    });
 };
 
 // Use Node-style exports to export functions for tests and main.
