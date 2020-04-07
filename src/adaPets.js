@@ -9,16 +9,34 @@ const BASE_URL = 'http://localhost:3000/pets/';
 
 // Option functions.
 const listPets = () => {
-  // Fill out as part of Wave 1.
+
+  axios.get(BASE_URL)
+
+  .then((response) => {
+    setResult(response.data);
+  })   
+  .catch((error) => {
+    setError('Not a valid HTTP call');
+  });
+
 };
 
 const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
-    
   }
+  // http://localhost:3000/pets/3
+  //console.log('BASE_URL + selectedPetId: ', BASE_URL + selectedPetId);
+  axios.get(BASE_URL + selectedPetId)
+  .then((response) => {
+    console.log('response: ', response);
+    setResult(response.data);
+  })   
+  .catch((error) => {
+    const errorMessage = `select show details ${error}`
+    setError(errorMessage);
+  });
 
-  // Fill out as part of Wave 2.
 };
 
 const removePet = (selectedPetId) => {
@@ -41,3 +59,4 @@ module.exports = {
   removePet,
   addPet
 };
+
