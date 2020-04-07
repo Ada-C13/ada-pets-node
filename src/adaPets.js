@@ -45,7 +45,7 @@ const removePet = (selectedPetId) => {
   // Fill out as part of Wave 3.
   axios.delete(BASE_URL+selectedPetId)
     .then((response)=>{
-      setResult(response);
+      setResult(console.log(`pet id:${selectedPetId} is removed!`));
     })
     .catch((error)=>{
       setError(`Failed to remove or select error:${error}`);

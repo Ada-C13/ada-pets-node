@@ -55,6 +55,11 @@
       "age": 13,
       "owner": "julie",
       "id": 8
+    },
+    {
+      "options": {},
+      "name": "oscar",
+      "id": 9
     }
   ]
 }
