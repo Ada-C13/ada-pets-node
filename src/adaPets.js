@@ -61,13 +61,13 @@ const removePet = (selectedPetId) => {
 
 //WAVE 4: To do this fill out the addPet function. This will need to call the Pets API to add the pet. This should setResult with a success message if this works and should call setError with an error message if the request fails.
 const addPet = (petInfo) => {
-  axios.post(BASE_URL + petInfo)
+  axios.post(BASE_URL, petInfo)
   .then((response) => {
     setResult(response.data);
   })
   .catch((error) => {
     //ASSIGNMENT REQ: setError should be passed an error message. (You may need to write this message.)
-    setError("404: Request to add pet failed.");
+    setError("Request to add pet failed.");
   });
 };
 
