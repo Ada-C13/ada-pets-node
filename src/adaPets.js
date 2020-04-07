@@ -39,7 +39,8 @@ const removePet = (selectedPetId) => {
 
   axios.delete(`${BASE_URL}${selectedPetId}`)
   .then((response) => {
-    setResult(response)
+    console.log(response)
+    setResult(response.status)
   })
   .catch((error) => {
     setError(`remove select ${error.message}`)
