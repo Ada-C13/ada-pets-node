@@ -39,7 +39,7 @@ const showDetails = (selectedPetId) => {
 const removePet = (selectedPetId) => {
   axios.delete(BASE_URL + selectedPetId)
     .then((response) => {
-      setResult('This pet has been removed because it found it\'s forever home!');
+      setResult('This pet has been removed because it found its forever home!');
     })
   
     .catch((error) => {
