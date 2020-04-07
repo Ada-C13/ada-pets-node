@@ -14,17 +14,17 @@ const listPets = () => {
   axios.get('http://localhost:3000/pets/')
     .then((pets) => {
       for (let pet of pets) {
-        
+        let petInfo = {};
+        petInfo['id'] = pet.id;
+        petInfo['name'] = pet.name;
+
+        petList.push(petList);
       }
-      let petInfo = {};
-
-
-
-
+      setResult(petList);
     })
-    .catch(
-      setError('There was an error with the API.');
-    );
+    .catch((error) => {
+      setError(`There was an ${error} with the API.`);
+    });
 };
 
 const showDetails = (selectedPetId) => {
