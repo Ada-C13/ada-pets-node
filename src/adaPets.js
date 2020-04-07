@@ -31,20 +31,27 @@ const listPets = () => {
 
 const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
-    setError("You tried to show details for a pet without selecting it!");
-  }
-
-  axios.get(BASE_URL)
-    .then((pets) => {
-      for (let pet of pets.data) {
-        if (selectedPetId === pet.id) {
-          setResult(pet);
-        };
-      };
+    setError('You tried to show details for a pet without selecting it!');
+  } else {
+    axios.get(BASE_URL + selectedPetId)
+    .then((response) => {
+      setResult(response.data);
     })
+
+    // (pets) => {
+
+    //   for (let pet of pets.data) {
+    //     if (selectedPetId === pet.id) {
+    //       setResult(pet);
+    //     };
+    //   };
+
+    // }
+
     .catch((error) => {
-      setError(`There was an error locating this pet.`);
+      setError(`Failed with a 404 code to select and show details.`);
     });
+  };
 };
 
 const removePet = (selectedPetId) => {
