@@ -63,6 +63,7 @@ const removePet = (selectedPetId) => {
 const addPet = (petInfo) => {
   axios.post(BASE_URL, petInfo)
   .then((response) => {
+    //ASSIGNMENT REQ: setResult should be passed a success message. (You may need to write this message.)
     setResult(response.data);
   })
   .catch((error) => {
