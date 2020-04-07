@@ -16,7 +16,7 @@ const listPets = () => {
   })
   .catch((error) => {
     // console.log(`This is the error message ${error}`)
-    setError(`This is the error message ${error}`)
+    setError(`This is the error message ${error.message}`)
   })
 };
 
@@ -31,7 +31,7 @@ const showDetails = (selectedPetId) => {
     setResult(response.data)
   })
   .catch((error) => {
-    setError(`select show details ${error}`)
+    setError(`select show details ${error.message}`)
   })
 };
 
@@ -42,18 +42,22 @@ const removePet = (selectedPetId) => {
 
   axios.delete(`${BASE_URL}${selectedPetId}`)
   .then((response) => {
-    console.log(response.data)
     setResult(response)
   })
   .catch((error) => {
-    setError(`select show details ${error}`)
+    setError(`remove select ${error.message}`)
   })
-
-
 };
 
 const addPet = (petInfo) => {
-  // Fill out as part of Wave 4.
+
+  axios.post(BASE_URL, petInfo)
+  .then((response) => {
+    setResult(response.data)
+  })
+  .catch((error) => {
+    setError(`add ${error.message}`)
+  })
 };
 
 // Use Node-style exports to export functions for tests and main.
