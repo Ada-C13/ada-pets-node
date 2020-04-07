@@ -45,7 +45,7 @@ const showDetails = (selectedPetId) => {
     })
     .catch((error) => {
       //ASSIGNMENT REQ: setError should be passed an error message. (You may need to write this message.)
-      setError("Request failed.");
+      setError("404: Request failed.");
     });
   }
 
