@@ -37,12 +37,18 @@ const showDetails = (selectedPetId) => {
 };
 
 const removePet = (selectedPetId) => {
+  axios.delete(BASE_URL + selectedPetId)
+    .then((response) => {
+      setResult('This pet has been removed because it found it\'s forever home!');
+    })
+  
+    .catch((error) => {
+      setError(`Request failed with status code 404 and failed to remove and selected pet`);
+    });
+  
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
-    
   }
-
-  // Fill out as part of Wave 3.
 };
 
 const addPet = (petInfo) => {
