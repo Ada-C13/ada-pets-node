@@ -11,13 +11,15 @@ const BASE_URL = 'http://localhost:3000/pets/';
 const listPets = () => {
   let pets = [];
 
-  axios.get(BASE_URL).then(response => {   
+  axios.get(BASE_URL)
+  .then(response => {   
     const allPets = response.data;
     allPets.forEach(pet => {
       pets.push({name: pet.name, id: pet.id})  
     })    
     setResult(pets); 
-  }).catch(response => {    
+  })
+  .catch(response => {    
     setError('API call failed: ' + response.status + ' error')
   });
 };
@@ -25,10 +27,15 @@ const listPets = () => {
 const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
-    
-  }
-
-  // Fill out as part of Wave 2.
+  } else {    
+    axios.get(BASE_URL + selectedPetId)
+    .then(response => {         
+      setResult(response.data); 
+    })
+    .catch(response => {    
+      setError('API call failed: ' + response.response.status + ' error')
+    });
+  };
 };
 
 const removePet = (selectedPetId) => {
