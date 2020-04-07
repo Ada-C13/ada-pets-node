@@ -12,14 +12,18 @@ const listPets = () => {
   let petList = [];
 
   axios.get('http://localhost:3000/pets/')
-    .then((pets) => {
+    .then((response) => {
+      // console.log(pets.data[0].id);
+      const pets = response.data;
       for (let pet of pets) {
         let petInfo = {};
+
         petInfo['id'] = pet.id;
         petInfo['name'] = pet.name;
 
-        petList.push(petList);
+        petList.push(petInfo);
       }
+
       setResult(petList);
     })
     .catch((error) => {
