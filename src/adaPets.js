@@ -19,7 +19,7 @@ const listPets = () => {
       setResult(response.data);
     })
     .catch((error) => {
-      setError(`Error: ${error}`);
+      setError(`We encountered a problem! ${error}`);
     });
 };
 
@@ -29,7 +29,9 @@ const showDetails = (selectedPetId) => {
     
   }
 
-  // Fill out as part of Wave 2.
+  // get list of pets, pass param id: selectedPetID
+  // .then pass to setResult the object representing the pet (response.data)
+  // .catch error and print message
 };
 
 const removePet = (selectedPetId) => {
