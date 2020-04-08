@@ -57,9 +57,9 @@
       "id": 11
     },
     {
-      "name ": "Harry",
+      "name": "Harry",
       "species": "doggy",
-      "age": "2.5",
+      "age": "2",
       "owner": "Doug",
       "id": 12
     }

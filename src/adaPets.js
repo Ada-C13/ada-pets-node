@@ -14,7 +14,7 @@ const listPets = () => {
   .then((response) => {
     allPets = []
     response.data.forEach(pet => {
-      allPets.push({id: pet.id, name: pet.name, species: pet.species});
+      allPets.push({id: pet.id, name: pet.name, species: pet});
     })
     setResult(allPets);
   })
@@ -27,11 +27,24 @@ const listPets = () => {
 const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
+    return;
     
   }
+      // Fill out as part of Wave 2.
+    const petDetails = {
+      id: selectedPetId
+    };
 
-  // Fill out as part of Wave 2.
+    axios.get(BASE_URL+selectedPetId, petDetails)
+   
+      .then((response) => {
+        setResult(response.data);
+      })
+      .catch((error) => {
+        setError('Failed Request: 404');
+    });
 };
+
 
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
