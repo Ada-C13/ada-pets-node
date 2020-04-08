@@ -48,6 +48,20 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
+    },
+    {
+      "name": "spidey-man",
+      "species": "cat",
+      "age": "13",
+      "owner": "mom",
+      "id": 11
+    },
+    {
+      "name ": "Harry",
+      "species": "doggy",
+      "age": "2.5",
+      "owner": "Doug",
+      "id": 12
     }
   ]
 }

@@ -78,7 +78,7 @@ Answer the following questions to guide through familiarizing yourself with the 
 
 Remember, all requests that we make have a verb and a path.
 
-1. What is the verb and path of the request to get a list of pets from this API?
+1. What is the verb and path of the request to get a list of pets from this API?  
 1. The response of this request should be a list of pets. What kind of data structure is the list of pets? What is the status code of this request? Test it with Postman.
 1. What is the verb and path of the request to get the details of a single pet from this API?
 1. What are the query parameters of this request?

@@ -1,4 +1,4 @@
-// Use Node-style imports for dependencies.
+ // Use Node-style imports for dependencies.
 const axios = require('axios');
 const result = require('./result.js');
 
@@ -9,7 +9,19 @@ const BASE_URL = 'http://localhost:3000/pets/';
 
 // Option functions.
 const listPets = () => {
-  // Fill out as part of Wave 1.
+// Fill out as part of Wave 1
+  axios.get(BASE_URL)
+  .then((response) => {
+    allPets = []
+    response.data.forEach(pet => {
+      allPets.push({id: pet.id, name: pet.name, species: pet.species});
+    })
+    setResult(allPets);
+  })
+  .catch((error) => {
+    setError(`There was an ERROR: ${error.response}`);
+  })
+
 };
 
 const showDetails = (selectedPetId) => {
