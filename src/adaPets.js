@@ -64,7 +64,9 @@ const removePet = (selectedPetId) => {
 };
 
 const addPet = (petInfo) => {
-  // Fill out as part of Wave 4.
+  // makes a post request using BASE_URL, add Content-Type: application/json to the header according to the json-server documentation
+  // setResult should be passed the new pet (from the API, not from petInfo)
+  // setError should be passed an error message containing the words failed and add
 };
 
 // Use Node-style exports to export functions for tests and main.
