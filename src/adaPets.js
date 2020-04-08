@@ -56,13 +56,14 @@ const addPet = (petInfo) => {
 
   axios.post(BASE_URL, petInfo)
   .then((response) => {
-    setResult(response);
+    
+    setResult(response.data);
+    console.log(response.data);
   })   
   .catch((error) => {
     const errorMessage = `failed to add pet, please enter valid pet parameters: ${error}`
     setError(errorMessage);
   });
-  
 };
 
 // Use Node-style exports to export functions for tests and main.
@@ -73,4 +74,4 @@ module.exports = {
   addPet
 };
 
-listPets();
+//listPets();
