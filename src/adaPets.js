@@ -25,8 +25,6 @@ const showDetails = (selectedPetId) => {
   } else {
     axios.get(BASE_URL + selectedPetId)
     .then((response) => {
-      console.log(selectedPetId);
-      //console.log(typeof response.data);
       setResult(response.data);
     })
     .catch((error) => {
@@ -42,7 +40,7 @@ const removePet = (selectedPetId) => {
     setError("You tried to remove a pet without selecting it!");
   } else {
     axios.delete(BASE_URL + selectedPetId)
-    .then((result) =>{
+    .then((response) =>{
       setResult(`Happy Adoption! Pet number ${selectedPetId} has been removed from the system.`);
     })
     .catch((error) => {
@@ -55,8 +53,8 @@ const removePet = (selectedPetId) => {
 const addPet = (petInfo) => {
   // Fill out as part of Wave 4.
   axios.post((BASE_URL), petInfo)
-  .then((result) => {
-    setResult(result.data);
+  .then((response) => {
+    setResult(response.data);
   })
   .catch((error) => {
     setError(`Opps cannot add the pet! it failed with ${error}`);
