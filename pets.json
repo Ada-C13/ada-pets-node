@@ -48,6 +48,14 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
+    },
+    {
+      "name": "Wilbur",
+      "age": 5,
+      "species": "pig",
+      "owner": "Yesenia",
+      "about": "he cant actually spell",
+      "id": 8
     }
   ]
 }
