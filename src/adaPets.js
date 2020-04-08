@@ -54,6 +54,7 @@ const removePet = (selectedPetId) => {
   };
 };
 
+
 const addPet = (petInfo) => {
   axios.post(BASE_URL, petInfo)
     .then((response) => {
