@@ -43,11 +43,18 @@
       "owner": "Ada"
     },
     {
-      "id": 7,
       "name": "Rex",
       "species": "Dog",
-      "age": 9,
-      "owner": "Christine"
+      "age": "9",
+      "owner": "Christine",
+      "id": 7
+    },
+    {
+      "name": "Merlin",
+      "species": "Dog",
+      "age": "3",
+      "owner": "Nataliya",
+      "id": 8
     }
   ]
 }

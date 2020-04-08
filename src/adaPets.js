@@ -30,17 +30,23 @@ const showDetails = (selectedPetId) => {
     setResult(response.data);
   })
   .catch(function (error) {
-    setError(`show details about ${selectedPetId} failed with: 404 Not Found. Please, select another pet!`)
+    setError(`Command show details about ${selectedPetId} failed with: 404 Not Found. Please, select another pet!`)
   })
 };
 
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
-    
   }
 
   // Fill out as part of Wave 3.
+  axios.delete("http://localhost:3000/pets/" + selectedPetId)
+  .then(function (response) {
+    setResult(`Pet ${selectedPetId} successfuly deleted`);
+  })
+  .catch(function (error) {
+    setError(`Command remove pet ${selectedPetId} failed with: 404 Not Found. Please, select another pet!`)
+  })
 };
 
 const addPet = (petInfo) => {
