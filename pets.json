@@ -48,6 +48,20 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
+    },
+    {
+      "name": "Choco",
+      "species": "Corgi",
+      "age": 1,
+      "owner": "Cathy",
+      "id": 8
+    },
+    {
+      "name": "Brownie",
+      "species": "French Bulldog",
+      "age": 1,
+      "owner": "Doe",
+      "id": 9
     }
   ]
 }
