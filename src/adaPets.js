@@ -12,11 +12,9 @@ const listPets = () => {
    // Fill out as part of Wave 1.
   axios.get(BASE_URL)
   .then((response) =>{
-    // console.log(response)
     setResult(response.data)
   })
   .catch((error) =>{
-    // setError(`There is an error with this request ${error.response.data}`)
     setError(error.message)
   });
 };
@@ -40,10 +38,18 @@ const showDetails = (selectedPetId) => {
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
+  }else{
+    axios.delete(BASE_URL + selectedPetId)
+    .then(response =>{
+      setResult(response.data)
+    })
+    .catch(error => {
+      setError("Failed, to remove"); 
+    })
   }
-
   // Fill out as part of Wave 3.
 };
+
 
 const addPet = (petInfo) => {
   // Fill out as part of Wave 4.
