@@ -48,10 +48,19 @@ const removePet = (selectedPetId) => {
     setError("You tried to remove a pet without selecting it!");
     
   } else {
-
-  // make a delete request using BASE_URL + selectedPetId
-  // setResult passed a success message (will response.message work?)
-  // setError passed an error message containing the words failed and remove
+    axios.delete(BASE_URL + selectedPetId, 
+      {
+        params: {
+          format: 'json'
+        }
+      })
+      .then(() => {
+        setResult(`Success! Pet #${selectedPetId} has been removed.`);
+      })
+      .catch((error) => {
+        setError(`${error.message}. Could not remove Pet #${selectedPetId}!`);
+    });
+  };
 };
 
 const addPet = (petInfo) => {
