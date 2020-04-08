@@ -48,6 +48,18 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
+    },
+    {
+      "id": 100,
+      "name": "Pola",
+      "species": "monkey",
+      "about": "Little blue monkey"
+    },
+    {
+      "id": 101,
+      "name": "Firu",
+      "species": "Dog",
+      "about": "Green and red"
     }
   ]
 }
