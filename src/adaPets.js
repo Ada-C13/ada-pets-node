@@ -19,7 +19,6 @@ const listPets = () => {
   });
 };
 
-
 const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!"); 
@@ -41,6 +40,7 @@ const removePet = (selectedPetId) => {
   }else{
     axios.delete(BASE_URL + selectedPetId)
     .then(response =>{
+      console.log("We are going to miss you...!");
       setResult(response.data)
     })
     .catch(error => {
@@ -52,6 +52,15 @@ const removePet = (selectedPetId) => {
 
 
 const addPet = (petInfo) => {
+  
+  axios.post(BASE_URL, petInfo)
+  .then(response => {
+    console.log("Welcome to your house...!")
+    setResult(response.data)
+  })
+  .catch(error => {
+    setError("Pet failed to be added to the list"); 
+  })
   // Fill out as part of Wave 4.
 };
 
