@@ -14,7 +14,7 @@ const listPets = () => {
       setResult(resp.data);
     })
     .catch(error => {
-      setError(error.message);
+      setError(`Unable to list pets: ${error.message}`);
     })
 };
 
@@ -27,7 +27,7 @@ const showDetails = (selectedPetId) => {
         setResult(resp.data);
       })
       .catch(error => {
-        setError(error.message);
+        setError(`Unable to show details: ${error.message}`);
       })
   };
 };
@@ -35,9 +35,16 @@ const showDetails = (selectedPetId) => {
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
-  }
+  } else {
+  axios.delete(BASE_URL + selectedPetId)
+  .then(resp => {
+    setResult(resp.data);
+  })
+  .catch(error => {
+    setError(`Failed to remove selected pet: ${error.message}`);
+  })
 
-  // Fill out as part of Wave 3.
+};
 };
 
 const addPet = (petInfo) => {
