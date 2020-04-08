@@ -10,16 +10,35 @@ const BASE_URL = 'http://localhost:3000/pets/';
 // Option functions.
 const listPets = () => {
   // Fill out as part of Wave 1.
+  axios.get(BASE_URL)
+    .then((response) => {
+      // console.log(response);
+      setResult(response.data);
+    })
+    .catch((error) => {
+      // console.log(error);
+      setError(error.message);
+    });
 };
+
 
 const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
+  } else {
+    const singlePetURL = BASE_URL + selectedPetId.toString();
     
-  }
-
-  // Fill out as part of Wave 2.
+    axios.get(singlePetURL)
+      .then((response) => {
+        // console.log(response);
+        setResult(response.data);
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
 };
+
 
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
