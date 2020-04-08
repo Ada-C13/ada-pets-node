@@ -9,21 +9,33 @@ const BASE_URL = 'http://localhost:3000/pets/';
 
 // Option functions.
 const listPets = () => {
-  // Fill out as part of Wave 1.
+  axios.get(BASE_URL)
+  .then((response) => {
+    allPets = response.data.map((petData) => ({ id: petData.id, name: petData.name }));
+    setResult(allPets);
+  })
+  .catch((error) => {
+    setError(`There was an Error: ${error}.`);
+  })
 };
 
 const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
-    setError("You tried to show details for a pet without selecting it!");
-    
+    setError(`You must select a pet before attempting to show details!`);
   }
-
-  // Fill out as part of Wave 2.
+  axios.get(BASE_URL + `${selectedPetId}`)
+  .then((response) => {
+    console.log(`Result ---> `, response.data, typeof response.data);
+    setResult(response.data);
+  })
+  .catch((error) => {
+    setError(`Error: failed with code ${error} while trying to show details for the selected pet`);
+  })
 };
 
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
-    setError("You tried to remove a pet without selecting it!");
+    setError(`You tried to remove a pet without selecting it!`);
     
   }
 
