@@ -25,7 +25,6 @@ const listPets = () => {
     })
 };
 
-
 const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
@@ -40,7 +39,6 @@ const showDetails = (selectedPetId) => {
       })
   }
 };
-
 
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
@@ -58,7 +56,20 @@ const removePet = (selectedPetId) => {
 };
 
 const addPet = (petInfo) => {
+  const body = {
+    name: petInfo.name,
+    species: petInfo.species,
+    about: petInfo.about
+  };
+
   // Fill out as part of Wave 4.
+  axios.post(BASE_URL, body)
+    .then((response) => {
+      setResult(response.data);
+    })
+    .catch((error) => {
+      setError(`failed to add ${petInfo.name} pet`);
+    })
 };
 
 // Use Node-style exports to export functions for tests and main.
