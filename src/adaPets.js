@@ -13,6 +13,7 @@ const listPets = () => {
   axios.get(BASE_URL)
 
   .then((response) => {
+    console.log(response);
     setResult(response.data);
   })   
   .catch((error) => {
@@ -25,15 +26,13 @@ const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
   }
-  // http://localhost:3000/pets/3
-  //console.log('BASE_URL + selectedPetId: ', BASE_URL + selectedPetId);
   axios.get(BASE_URL + selectedPetId)
   .then((response) => {
-    console.log('response: ', response);
+   
     setResult(response.data);
   })   
   .catch((error) => {
-    const errorMessage = `select show details ${error}`
+    const errorMessage = `failed to show details, please select a valid pet id: ${error}`
     setError(errorMessage);
   });
 
@@ -42,14 +41,28 @@ const showDetails = (selectedPetId) => {
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
-    
   }
-
-  // Fill out as part of Wave 3.
+  axios.delete(BASE_URL + selectedPetId)
+  .then((response) => {
+    setResult(response.data);
+  })   
+  .catch((error) => {
+    const errorMessage = `failed to remove pet, please select a valid pet ID: ${error}`
+    setError(errorMessage);
+  });
 };
 
 const addPet = (petInfo) => {
-  // Fill out as part of Wave 4.
+
+  axios.post(BASE_URL, petInfo)
+  .then((response) => {
+    setResult(response);
+  })   
+  .catch((error) => {
+    const errorMessage = `failed to add pet, please enter valid pet parameters: ${error}`
+    setError(errorMessage);
+  });
+  
 };
 
 // Use Node-style exports to export functions for tests and main.
@@ -60,3 +73,4 @@ module.exports = {
   addPet
 };
 
+listPets();
