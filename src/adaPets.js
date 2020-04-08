@@ -11,10 +11,10 @@ const BASE_URL = 'http://localhost:3000/pets/';
 const listPets = () => {
   axios.get(BASE_URL)
   .then((response) => {
-    return setResult(response.data);
+    setResult(response.data);
   })
   .catch((error) => {
-    return setError(`Oh bother... I encountered the following ERROR: ${error.message}.`);
+    setError(`Oh bother... I encountered the following ERROR: ${error.message}.`);
   });
 };
 
@@ -22,30 +22,41 @@ const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
   } else {
-    url = BASE_URL + selectedPetId
+    const url = BASE_URL + selectedPetId
+
     axios.get(url)
     .then((response) => {
       setResult(response.data);
     })
     .catch((error) => {
-      return setError(`Oops, I encountered this error: ${error}.`);
+      setError(`Oops, I encountered this error: ${error}.`);
     });
-  }
-
-  // Fill out as part of Wave 2.
+  };
 };
 
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
+  } else { 
+    const url = BASE_URL + selectedPetId
     
-  }
-
-  // Fill out as part of Wave 3.
+    axios.delete(url)
+    .then((response) => {
+      setResult(response.data);
+    })
+    .catch((error) => {
+      setError(`Yikes, I failed to remove this pet and got this error: ${error}`);
+    });
+  };
 };
 
 const addPet = (petInfo) => {
-  // Fill out as part of Wave 4.
+  if (petInfo) {
+    let params = this //TODO FIX THIS HERE
+    const url = BASE_URL + params
+  }
+
+  
 };
 
 // Use Node-style exports to export functions for tests and main.
