@@ -15,7 +15,7 @@ const listPets = () => {
     setResult(response.data);
   })
   .catch((error) => {
-    setError(`Something went wrong ${error}`);
+    setError(`This went wrong: ${error.message}`);
   });
 }
 
