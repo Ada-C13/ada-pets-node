@@ -2,6 +2,7 @@
 const vorpal = require('vorpal')();
 const result = require('./result.js');
 const adaPets = require('./adaPets.js');
+const axios = require('axios').default;
 
 const setResult = result.setResult;
 const setError = result.setError;
