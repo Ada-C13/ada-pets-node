@@ -14,12 +14,14 @@ const listPets = () => {
     .then((response) => {
       listOfPets = []
       response.data.forEach(pet => {
-        listOfPets.push({id: pet.id, name: pet.name});
+        listOfPets.push({ id: pet.id, name: pet.name });
       })
       setResult(listOfPets);
     })
     .catch((error) => {
+
       setError(`ERROR OCCURED: ${error.status}`);
+      console.log(`ERROR OCCURED: ${error}`);
     })
 };
 
@@ -27,16 +29,25 @@ const listPets = () => {
 const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
-    
+  } else {
+    // Fill out as part of Wave 2.
+    axios.get(`${BASE_URL}${selectedPetId}`)
+      .then((response) => {
+        setResult(response.data);
+      })
+    .catch((error) => {
+      console.log(error);
+      setError(error.message);
+    })
   }
-
-  // Fill out as part of Wave 2.
 };
+
+
 
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
-    
+
   }
 
   // Fill out as part of Wave 3.
