@@ -20,7 +20,7 @@ const listPets = () => {
     })
     .catch((error) => {
       setError(`We encountered a problem! ${error}`);
-    });
+  });
 };
 
 const showDetails = (selectedPetId) => {
@@ -29,9 +29,18 @@ const showDetails = (selectedPetId) => {
     
   }
 
-  // get list of pets, pass param id: selectedPetID
-  // .then pass to setResult the object representing the pet (response.data)
-  // .catch error and print message
+  axios.get(BASE_URL + selectedPetId, 
+    {
+      params: {
+        format: 'json'
+      }
+    })
+    .then((response) => {
+      setResult(response.data);
+    })
+    .catch((error) => {
+      setError(`We encountered a problem! ${error}`);
+  });
 };
 
 const removePet = (selectedPetId) => {
