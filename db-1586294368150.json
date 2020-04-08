@@ -15,6 +15,20 @@
       "owner": "Dan"
     },
     {
+      "id": 3,
+      "name": "Samson",
+      "species": "Cat",
+      "age": 13,
+      "owner": "Dee"
+    },
+    {
+      "id": 4,
+      "name": "Ruth",
+      "species": "Dog",
+      "age": 7,
+      "owner": "Crystal"
+    },
+    {
       "id": 5,
       "name": "Stinker",
       "species": "dog",
