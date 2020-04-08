@@ -29,7 +29,7 @@ const showDetails = (selectedPetId) => {
       setResult(response.data);
     })
     .catch((error) => {
-      setError(`Oops, I encountered this error: ${error}.`);
+      setError(`Oops, I can't display the details of this pet because I encountered this ERROR: ${error.message}.`);
     });
   };
 };
@@ -39,24 +39,27 @@ const removePet = (selectedPetId) => {
     setError("You tried to remove a pet without selecting it!");
   } else { 
     const url = BASE_URL + selectedPetId
-    
+
     axios.delete(url)
     .then((response) => {
       setResult(response.data);
     })
     .catch((error) => {
-      setError(`Yikes, I failed to remove this pet and got this error: ${error}`);
+      setError(`Yikes, I failed to remove this pet and got this ERROR: ${error.message}`);
     });
   };
 };
 
 const addPet = (petInfo) => {
   if (petInfo) {
-    let params = this //TODO FIX THIS HERE
-    const url = BASE_URL + params
-  }
-
-  
+    axios.post(BASE_URL, petInfo)
+    .then((response) => {
+      setResult(response.data)
+    })
+    .catch((error) => {
+      setError(`Oh dear, I failed to add this pet and encountered this ERROR: ${error.message}.`)
+    });
+  };
 };
 
 // Use Node-style exports to export functions for tests and main.
