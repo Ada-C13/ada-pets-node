@@ -14,15 +14,11 @@ const listPets = () => {
   axios.get(BASE_URL)
     .then((pets) => {
       for (let pet of pets.data) {
-        let petInfo = {};
-        petInfo['id'] = pet.id;
-        petInfo['name'] = pet.name;
-        petList.push(petInfo);
-      }
-
+        petList.push(pet);
+      };
       setResult(petList);
     })
-    .catch((error) => {
+    .catch(() => {
       setError(`There was an error grabbing the list of all pets.`);
     });
 };
@@ -36,7 +32,7 @@ const showDetails = (selectedPetId) => {
         setResult(response.data);
       })
       .catch((error) => {
-        setError(`Failed with a 404 code to select and show details.`);
+        setError(`${error.response.status}: Failed with a 404 code to select and show details.`);
       });
   };
 };
@@ -46,25 +42,22 @@ const removePet = (selectedPetId) => {
     setError("You tried to remove a pet without selecting it!");
   } else {
     axios.delete(BASE_URL + selectedPetId)
-      .then((response) => {
+      .then(() => {
         setResult(`Successfully deleted pet from list; it has been adopted!`);
       })
       .catch((error) => {
-        setError(`Failed to remove this pet.`)
+        setError(`${error.response.status}: Failed to remove this pet.`);
       });
   };
 };
 
 const addPet = (petInfo) => {
   axios.post(BASE_URL, petInfo)
-    .then((response) => {
-      // console.log(response.data);
-      console.log(response.request)
+    .then(() => {
       setResult(petInfo);
-      // return response.data;
     })
     .catch((error) => {
-      setError('Failed to add pet to list.');
+      setError(`${error.response.status}: Failed to add pet to list.`);
     });
 };
 
