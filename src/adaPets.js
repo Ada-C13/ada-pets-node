@@ -10,13 +10,9 @@ const BASE_URL = 'http://localhost:3000/pets/';
 // Option functions.
 const listPets = () => {
 // Fill out as part of Wave 1
-  axios.get(BASE_URL)
+  axios.GET(BASE_URL)
   .then((response) => {
-    allPets = []
-    response.data.forEach(pet => {
-      allPets.push({id: pet.id, name: pet.name, species: pet});
-    })
-    setResult(allPets);
+    setResult(response.data);
   })
   .catch((error) => {
     setError(`There was an ERROR: ${error.response}`);
@@ -31,18 +27,14 @@ const showDetails = (selectedPetId) => {
     
   }
       // Fill out as part of Wave 2.
-    const petDetails = {
-      id: selectedPetId
-    };
+  axios.GET(BASE_URL+selectedPetId)
+  .then((response) => {
+      setResult(response.data);
+  })
+  .catch((error) => {
+    setError(`Failed Request: 404 ${error.response}`);
+  })
 
-    axios.get(BASE_URL+selectedPetId, petDetails)
-   
-      .then((response) => {
-        setResult(response.data);
-      })
-      .catch((error) => {
-        setError('Failed Request: 404');
-    });
 };
 
 
@@ -54,6 +46,7 @@ const removePet = (selectedPetId) => {
 
   // Fill out as part of Wave 3.
 };
+  // axios.DELETE /pets/:pet_id where :pet_id is a pet id, such as 1. Deletes a pet, by id
 
 const addPet = (petInfo) => {
   // Fill out as part of Wave 4.
