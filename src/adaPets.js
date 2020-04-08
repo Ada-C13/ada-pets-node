@@ -13,12 +13,14 @@ const listPets = () => {
   axios.get(BASE_URL)
 
   .then((response) => {
-    allPets = response.data.map((petData) => ({id: petData.id, name: petData.name }));
+    allPets = response.data.map((petData) => (
+      { id: petData.id, name: petData.name }
+    ));
     setResult(allPets);
   })
 
   .catch((error) => {
-    setError(`There was an Error: ${error}.`);
+    setError(`There was an Error: ${error}`);
   })
 
 };
