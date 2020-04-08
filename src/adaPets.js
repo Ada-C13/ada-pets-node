@@ -28,18 +28,18 @@ const showDetails = (selectedPetId) => {
     setError("You tried to show details for a pet without selecting it!");
     
   } else {
-  axios.get(BASE_URL + selectedPetId, 
-    {
-      params: {
-        format: 'json'
-      }
-    })
-    .then((response) => {
-      setResult(response.data);
-    })
-    .catch((error) => {
-      setError(error.message);
-  });
+    axios.get(BASE_URL + selectedPetId, 
+      {
+        params: {
+          format: 'json'
+        }
+      })
+      .then((response) => {
+        setResult(response.data);
+      })
+      .catch((error) => {
+        setError(error.message);
+    });
   };
 };
 
@@ -47,9 +47,11 @@ const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
     
-  }
+  } else {
 
-  // Fill out as part of Wave 3.
+  // make a delete request using BASE_URL + selectedPetId
+  // setResult passed a success message (will response.message work?)
+  // setError passed an error message containing the words failed and remove
 };
 
 const addPet = (petInfo) => {
