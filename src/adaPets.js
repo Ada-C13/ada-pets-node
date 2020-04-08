@@ -1,36 +1,45 @@
-// Use Node-style imports for dependencies.
-const axios = require('axios');
+// Node-style imports for dependencies
+const axios  = require('axios');
 const result = require('./result.js');
 
 const setResult = result.setResult;
-const setError = result.setError;
+const setError  = result.setError;
 
 const BASE_URL = 'http://localhost:3000/pets/';
 
-// Option functions.
+// Option functions
 const listPets = () => {
+
   axios.get(BASE_URL)
+
   .then((response) => {
-    allPets = response.data.map((petData) => ({ id: petData.id, name: petData.name }));
+    allPets = response.data.map((petData) => ({id: petData.id, name: petData.name }));
     setResult(allPets);
   })
+
   .catch((error) => {
     setError(`There was an Error: ${error}.`);
   })
+
 };
 
 const showDetails = (selectedPetId) => {
+
   if (!selectedPetId) {
     setError(`You must select a pet before attempting to show details!`);
   }
+
   axios.get(BASE_URL + `${selectedPetId}`)
+
   .then((response) => {
     console.log(`Result ---> `, response.data, typeof response.data);
     setResult(response.data);
   })
+  
   .catch((error) => {
     setError(`Failed: code ${error} in show details for selected pet`);
   })
+
 };
 
 const removePet = (selectedPetId) => {
@@ -46,7 +55,7 @@ const addPet = (petInfo) => {
   // Fill out as part of Wave 4.
 };
 
-// Use Node-style exports to export functions for tests and main.
+// Node-style exports functions for tests and main
 module.exports = {
   listPets,
   showDetails,
