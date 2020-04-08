@@ -15,7 +15,7 @@ const listPets = () => {
       setResult(response.data);
     })
     .catch((error) => {
-      setError(`There was an error from the API`);
+      setError(`Error message: ${error.message}`);
     });
 };
 
@@ -31,7 +31,8 @@ const showDetails = (selectedPetId) => {
       setResult(response.data);
     })
     .catch((error) => {
-      setError(`\n - Error status: 404\n - Error message: You failed to show details. You must select a pet first`)
+      console.log(error.message);
+      setError(`\n - Error status: ${error.message}\n - Error message: You failed to show details. You must select a pet first`)
     })
 };
 
@@ -46,8 +47,7 @@ const removePet = (selectedPetId) => {
       setResult(response.data);
     })
     .catch((error) => {
-
-      setError(`\n - Error status: ${error.response.status}\n - Error message: You failed to remove a pet. You must select a pet first`)
+      setError(`\n - Error status: ${error.message}\n - Error message: You failed to remove a pet. You must select a pet first`)
     })
 };
 
@@ -58,7 +58,7 @@ const addPet = (petInfo) => {
       setResult(response.data);
     })
     .catch((error) => {
-      setError(`\n - Error status: ${error.response.status}\n - Error message: You failed to add a pet.`);
+      setError(`\n - Error status: ${error.message}\n - Error message: You failed to add a pet name, ${petInfo.name}.`);
     });
 };
 
