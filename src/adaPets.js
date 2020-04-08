@@ -12,27 +12,34 @@ const listPets = () => {
    // Fill out as part of Wave 1.
   axios.get(BASE_URL)
   .then((response) =>{
+    // console.log(response)
     setResult(response.data)
   })
   .catch((error) =>{
-    setError("There was an error with this request")
+    // setError(`There is an error with this request ${error.response.data}`)
+    setError(error.message)
   });
 };
- 
+
 
 const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
-    setError("You tried to show details for a pet without selecting it!");
-   
+    setError("You tried to show details for a pet without selecting it!"); 
+  }else{
+    axios.get(BASE_URL + selectedPetId)
+    .then(response =>{
+      setResult(response.data)
+    })
+    .catch(error => {
+      setError(error.message); 
+    }) 
   }
-
   // Fill out as part of Wave 2.
 };
 
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
-    
   }
 
   // Fill out as part of Wave 3.
