@@ -19,7 +19,7 @@ const listPets = () => {
       setResult(response.data);
     })
     .catch((error) => {
-      setError(`We encountered a problem! ${error}`);
+      setError(error.message);
   });
 };
 
@@ -27,8 +27,7 @@ const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
     
-  }
-
+  } else {
   axios.get(BASE_URL + selectedPetId, 
     {
       params: {
@@ -39,8 +38,9 @@ const showDetails = (selectedPetId) => {
       setResult(response.data);
     })
     .catch((error) => {
-      setError(`We encountered a problem! ${error}`);
+      setError(error.message);
   });
+  };
 };
 
 const removePet = (selectedPetId) => {
