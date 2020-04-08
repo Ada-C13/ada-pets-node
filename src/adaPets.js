@@ -9,7 +9,6 @@ const BASE_URL = 'http://localhost:3000/pets/';
 
 // Option functions.
 const listPets = () => {
-  // Fill out as part of Wave 1.
   axios.get(BASE_URL)
     .then((response) => {
       // console.log(response);
@@ -30,7 +29,6 @@ const showDetails = (selectedPetId) => {
     
     axios.get(singlePetURL)
       .then((response) => {
-        // console.log(response);
         setResult(response.data);
       })
       .catch((error) => {
@@ -48,20 +46,21 @@ const removePet = (selectedPetId) => {
     
     axios.delete(singlePetURL)
       .then((response) => {
-        // console.log(response);
         setResult(response.data);
       })
       .catch((error) => {
-        // console.log(error);
-        setError(`Error for requesting to remove pet: ${error.message}`);
+        setError(`ERROR to remove pet: ${error.message}`);
       });
   };
-
-  // Fill out as part of Wave 3.
 };
 
 const addPet = (petInfo) => {
-  // Fill out as part of Wave 4.
+  axios.post(BASE_URL, petInfo)
+    .then((response) => {
+      setResult(response.data);
+    }).catch((error) => {
+      setError(`ERROR to add a pet: ${error.message}`);
+    });
 };
 
 // Use Node-style exports to export functions for tests and main.
