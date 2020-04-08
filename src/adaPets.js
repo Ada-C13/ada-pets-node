@@ -5,7 +5,7 @@ const result = require('./result.js');
 const setResult = result.setResult;
 const setError = result.setError;
 
-const BASE_URL = 'http://localhost:3000/pets/';
+const BASE_URL = 'http://localhost:3000/pets';
 
 // Option functions.
 const listPets = () => {
@@ -25,6 +25,13 @@ const showDetails = (selectedPetId) => {
   }
 
   // Fill out as part of Wave 2.
+  axios.get("http://localhost:3000/pets?id=3")
+  .then(function (response) {
+    setResult(response.data);
+  })
+  .catch(function (error) {
+    setError(`show details about ${selectedPetId} failed with: 404 Not Found. Please, select another pet!`)
+  })
 };
 
 const removePet = (selectedPetId) => {
