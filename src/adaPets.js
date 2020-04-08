@@ -25,14 +25,14 @@ const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
   } else {
-    const singlePetURL = BASE_URL + selectedPetId.toString();
+    // const singlePetURL = BASE_URL + selectedPetId;
     
-    axios.get(singlePetURL)
+    axios.get(BASE_URL + selectedPetId)
       .then((response) => {
         setResult(response.data);
       })
       .catch((error) => {
-        setError(error.message);
+        setError(`Error to show details: ${error.message}`);
       });
   };
 };
@@ -42,9 +42,9 @@ const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
   } else {
-    const singlePetURL = BASE_URL + selectedPetId.toString();
+    // const singlePetURL = BASE_URL + selectedPetId.toString();
     
-    axios.delete(singlePetURL)
+    axios.delete(BASE_URL + selectedPetId)
       .then((response) => {
         setResult(response.data);
       })
