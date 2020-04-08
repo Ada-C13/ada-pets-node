@@ -42,11 +42,11 @@ const removePet = (selectedPetId) => {
     setError("You tried to remove a pet without selecting it!");
   } else {
     axios.delete(`${BASE_URL}/${selectedPetId}`)
-    .then((response) =>{
+    .then((remove) =>{
       setResult(`Happy Adoption! Pet number ${selectedPetId} has been removed from the system.`)
     })
     .catch((error) => {
-      setError(`something went wrong with ${error}`);
+      setError(`someone already remove the pet or it failed ${error}`);
     })
   }
 
