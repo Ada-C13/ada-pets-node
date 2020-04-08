@@ -23,7 +23,7 @@ const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
   } else {
-    axios.get(`${BASE_URL}/${selectedPetId}`)
+    axios.get( BASE_URL + selectedPetId )
     .then((response) => {
       console.log(selectedPetId);
       //console.log(typeof response.data);
@@ -41,12 +41,12 @@ const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
   } else {
-    axios.delete(`${BASE_URL}/${selectedPetId}`)
-    .then((remove) =>{
+    axios.delete( BASE_URL + selectedPetId )
+    .then((result) =>{
       setResult(`Happy Adoption! Pet number ${selectedPetId} has been removed from the system.`)
     })
     .catch((error) => {
-      setError(`someone already remove the pet or it failed ${error}`);
+      setError(`someone already remove the pet or it failed with ${error}`);
     })
   }
 
