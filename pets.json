@@ -48,6 +48,15 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
+    },
+    {
+      "options": {
+        "age": 10000,
+        "species": "Unicorn",
+        "owner": "none"
+      },
+      "name": "Amalthea",
+      "id": 8
     }
   ]
 }
