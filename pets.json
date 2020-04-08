@@ -48,14 +48,6 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
-    },
-    {
-      "name": "Merlin",
-      "species": "dog",
-      "age": "3",
-      "owner": "Nataliya",
-      "fave-food": "everything",
-      "id": 8
     }
   ]
 }

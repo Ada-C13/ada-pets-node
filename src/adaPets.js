@@ -25,7 +25,7 @@ const showDetails = (selectedPetId) => {
   }
 
   // Fill out as part of Wave 2.
-  axios.get("http://localhost:3000/pets?id=3")
+  axios.get("http://localhost:3000/pets/" + selectedPetId)
   .then(function (response) {
     setResult(response.data);
   })
