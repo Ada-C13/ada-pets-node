@@ -24,14 +24,14 @@ const showDetails = (selectedPetId) => {
     setError("You tried to show details for a pet without selecting it!");
     return;
   } 
+  // Fill out as part of Wave 2.
   axios.get(BASE_URL + selectedPetId)
   .then((response) => {
     setResult(response.data);
   })
   .catch((error) => {
-    setError(`your request failed with code: ${error.response.status} `)
+    setError(`your request failed with code: ${error.response.status}`);
   });
-  // Fill out as part of Wave 2.
 };
 
 const removePet = (selectedPetId) => {
@@ -39,14 +39,14 @@ const removePet = (selectedPetId) => {
     setError("You tried to remove a pet without selecting it!");
     return;
   }
+  // Fill out as part of Wave 3.
   axios.delete(BASE_URL + selectedPetId)
   .then((response) => {
-
+    setResult(`Success! pet with ID ${selectedPetId} is now removed!`);
   })
   .catch((error) => {
-
+    setError(`your request to remove a pet with ID ${selectedPetId} failed with code: ${error.response.status}`);
   });
-  // Fill out as part of Wave 3.
 };
 
 const addPet = (petInfo) => {
@@ -54,10 +54,11 @@ const addPet = (petInfo) => {
   console.log(petInfo)
   axios.post(BASE_URL, petInfo)
   .then((response) => {
-
+    console.log(response)
   })
   .catch((error) => {
     // set(petInfo)
+    console.log(error)
   });
 };
 
