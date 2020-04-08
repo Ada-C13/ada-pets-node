@@ -10,6 +10,19 @@ const BASE_URL = 'http://localhost:3000/pets/';
 // Option functions.
 const listPets = () => {
   // Fill out as part of Wave 1.
+  axios.get(BASE_URL)
+    .then((response) => {
+      let pets = [];
+
+      response.data.forEach((pet) => {
+        pets.push({id: pet.id, name: pet.name});
+      })
+
+      setResult(pets);
+    })
+    .catch((error) => {
+      setError(`Something went wrong ${error}`);
+    });
 };
 
 const showDetails = (selectedPetId) => {
@@ -41,3 +54,5 @@ module.exports = {
   removePet,
   addPet
 };
+
+// listPets();
