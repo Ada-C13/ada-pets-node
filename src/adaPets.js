@@ -51,14 +51,20 @@ const removePet = (selectedPetId) => {
 
 const addPet = (petInfo) => {
   // Fill out as part of Wave 4.
-  console.log(petInfo)
-  axios.post(BASE_URL, petInfo)
+  // console.log(petInfo)
+  let newPetInfo = petInfo
+  for(let key in petInfo.options) {
+    newPetInfo[key]= petInfo.options[key]
+  }
+  delete newPetInfo.options
+  axios.post(BASE_URL, newPetInfo)
+  // console.log(newPetInfo)
   .then((response) => {
-    console.log(response)
+    setResult(response.data);
   })
   .catch((error) => {
     // set(petInfo)
-    console.log(error)
+    setError(`The program failed to add the new pet :( please try again later!)`);
   });
 };
 
