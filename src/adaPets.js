@@ -9,14 +9,9 @@ const BASE_URL = 'http://localhost:3000/pets/';
 
 // Option functions.
 const listPets = () => {
-  let petList = [];
-
   axios.get(BASE_URL)
     .then((pets) => {
-      for (let pet of pets.data) {
-        petList.push(pet);
-      };
-      setResult(petList);
+      setResult(pets.data);
     })
     .catch(() => {
       setError(`There was an error grabbing the list of all pets.`);
