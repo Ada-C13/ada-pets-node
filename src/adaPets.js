@@ -10,13 +10,29 @@ const BASE_URL = 'http://localhost:3000/pets/';
 // Option functions.
 const listPets = () => {
   // Fill out as part of Wave 1.
+  axios.get(BASE_URL)
+  .then((response) => {
+    setResult(response.data);
+  })
+  .catch((error) => {
+    setError(`something went wrong with ${error}`);
+  })
 };
 
 const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
-    
-  }
+  } else {
+    axios.get(`${BASE_URL}/${selectedPetId}`)
+    .then((response) => {
+      console.log(selectedPetId);
+      //console.log(typeof response.data);
+      setResult(response.data);
+    })
+    .catch((error) => {
+      setError(`something went wrong with ${error}`);
+    });
+  };
 
   // Fill out as part of Wave 2.
 };
@@ -24,7 +40,14 @@ const showDetails = (selectedPetId) => {
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
-    
+  } else {
+    axios.delete(`${BASE_URL}/${selectedPetId}`)
+    .then((response) =>{
+      setResult(`Happy Adoption! Pet number ${selectedPetId} has been removed from the system.`)
+    })
+    .catch((error) => {
+      setError(`something went wrong with ${error}`);
+    })
   }
 
   // Fill out as part of Wave 3.
