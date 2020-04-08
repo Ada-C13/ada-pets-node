@@ -9,12 +9,7 @@ const BASE_URL = 'http://localhost:3000/pets/';
 
 // Option functions.
 const listPets = () => {
-  axios.get(BASE_URL, 
-    {
-      params: {
-        format: 'json'
-      }
-    })
+  axios.get(BASE_URL)
     .then((response) => {
       setResult(response.data);
     })
@@ -28,12 +23,7 @@ const showDetails = (selectedPetId) => {
     setError("You tried to show details for a pet without selecting it!");
     
   } else {
-    axios.get(BASE_URL + selectedPetId, 
-      {
-        params: {
-          format: 'json'
-        }
-      })
+    axios.get(BASE_URL + selectedPetId)
       .then((response) => {
         setResult(response.data);
       })
@@ -46,14 +36,9 @@ const showDetails = (selectedPetId) => {
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
-    
+
   } else {
-    axios.delete(BASE_URL + selectedPetId, 
-      {
-        params: {
-          format: 'json'
-        }
-      })
+    axios.delete(BASE_URL + selectedPetId)
       .then(() => {
         setResult(`Success! Pet #${selectedPetId} has been removed.`);
       })
@@ -64,22 +49,13 @@ const removePet = (selectedPetId) => {
 };
 
 const addPet = (petInfo) => {
-  axios.post(BASE_URL, petInfo,
-    {
-      headers: {
-        'Content-Type': 'application/json' // see the json-server documentation
-      }
-    })
+  axios.post(BASE_URL, petInfo)
     .then((response) => {
       setResult(response.data);
     })
     .catch((error) => {
       setError(`${error.message}. Could not add ${petInfo.name}!`);
   });
-  
-  // makes a post request using BASE_URL, add Content-Type: application/json to the header according to the json-server documentation
-  // setResult should be passed the new pet (from the API, not from petInfo)
-  // setError should be passed an error message containing the words failed and add
 };
 
 // Use Node-style exports to export functions for tests and main.
