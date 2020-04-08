@@ -64,6 +64,19 @@ const removePet = (selectedPetId) => {
 };
 
 const addPet = (petInfo) => {
+  axios.post(BASE_URL, petInfo,
+    {
+      headers: {
+        'Content-Type': 'application/json' // see the json-server documentation
+      }
+    })
+    .then((response) => {
+      setResult(response.data);
+    })
+    .catch((error) => {
+      setError(`${error.message}. Could not add ${petInfo.name}!`);
+  });
+  
   // makes a post request using BASE_URL, add Content-Type: application/json to the header according to the json-server documentation
   // setResult should be passed the new pet (from the API, not from petInfo)
   // setError should be passed an error message containing the words failed and add
