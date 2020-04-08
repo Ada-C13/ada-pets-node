@@ -9,9 +9,7 @@ const BASE_URL = 'http://localhost:3000/pets/';
 
 // Option functions.
 const listPets = () => {
-
   axios.get(BASE_URL)
-
   .then((response) => {
     console.log(response);
     setResult(response.data);
@@ -56,9 +54,7 @@ const addPet = (petInfo) => {
 
   axios.post(BASE_URL, petInfo)
   .then((response) => {
-    
     setResult(response.data);
-    console.log(response.data);
   })   
   .catch((error) => {
     const errorMessage = `failed to add pet, please enter valid pet parameters: ${error}`
@@ -66,7 +62,6 @@ const addPet = (petInfo) => {
   });
 };
 
-// Use Node-style exports to export functions for tests and main.
 module.exports = {
   listPets,
   showDetails,
@@ -74,4 +69,3 @@ module.exports = {
   addPet
 };
 
-//listPets();
