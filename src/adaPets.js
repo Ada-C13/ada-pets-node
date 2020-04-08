@@ -29,7 +29,7 @@ const showDetails = (selectedPetId) => {
     setResult(response.data);
   })
   .catch((error) => {
-    setError(`Error: failed with code ${error} while trying to show details for the selected pet`);
+    setError(`Failed: code ${error} in show details for selected pet`);
   })
 };
 
