@@ -12,16 +12,10 @@ const listPets = () => {
   // Fill out as part of Wave 1.
   axios.get(BASE_URL)
     .then((response) => {
-      listOfPets = []
-      response.data.forEach(pet => {
-        listOfPets.push({ id: pet.id, name: pet.name });
-      })
-      setResult(listOfPets);
+      setResult(response.data);
     })
     .catch((error) => {
-
       setError(`ERROR OCCURED: ${error.status}`);
-      console.log(`ERROR OCCURED: ${error}`);
     })
 };
 
