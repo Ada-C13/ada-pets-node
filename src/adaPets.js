@@ -11,12 +11,12 @@ const BASE_URL = 'http://localhost:3000/pets/';
 const listPets = () => {
 // Fill out as part of Wave 1
   axios.get(BASE_URL)
-  .then((response) => {
-    setResult(response.data);
-  })
-  .catch((error) => {
-    setError(`There was an ERROR: ${error.response}`);
-  })
+    .then((response) => {
+      setResult(response.data);
+    })
+    .catch((error) => {
+      setError(`There was an ERROR: ${error.response}`);
+    })
 
 };
 
@@ -26,7 +26,7 @@ const showDetails = (selectedPetId) => {
     return;
   }
       // Fill out as part of Wave 2.
-  axios.get(BASE_URL+selectedPetId)
+  axios.get(BASE_URL + selectedPetId)
     .then((response) => {
         setResult(response.data);
     })
@@ -48,9 +48,15 @@ const removePet = (selectedPetId) => {
       setError(`Failed toremove the pet - you must select a pet_id: ${error.response}`);
     })
   };
-  // /pets/:pet_id where :pet_id is a pet id, such as 1. Deletes a pet, by id
 const addPet = (petInfo) => {
   // Fill out as part of Wave 4.
+  axios.post(BASE_URL, petInfo)
+    .then((response) => {
+      setResult(response.data);
+    })
+    .catch((error) => {
+      setError(`Failed to add the pet! ${error.response}`);
+    })
 };
 
 // Use Node-style exports to export functions for tests and main.
