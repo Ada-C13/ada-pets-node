@@ -67,7 +67,13 @@ const removePet = (selectedPetId) => {
 };
 
 const addPet = (petInfo) => {
-  
+  axios.post(BASE_URL, petInfo)
+  .then((response) => {
+    setResult(response.data)
+  })
+  .catch((error) => {
+    setError('Request to add pet failed.')
+  })
 };
 
 // Use Node-style exports to export functions for tests and main.
