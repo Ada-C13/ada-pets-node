@@ -48,7 +48,7 @@ const addPet = (petInfo) => {
   axios.post(BASE_URL, petInfo).then((response) => {
     setResult(response.data);
   }).catch((error) => {
-    setError(error.message);
+    setError("Failed to add pet");
   });
 };
 
