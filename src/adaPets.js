@@ -32,7 +32,7 @@ const showDetails = (selectedPetId) => {
       setResult(response.data);
     })
     .catch((error) => { 
-      setError('you selected a show details option that failed and status is 404'); 
+      setError('You selected a show details option that failed and status is 404 now'); 
     });
   }
 
@@ -47,7 +47,7 @@ const removePet = (selectedPetId) => {
      setResult(response.data);
    })
    .catch((error) => {
-     setError('you selected a removed pet option that failed');
+     setError('You selected a remove pet option that failed');
    })
 };
 
@@ -58,7 +58,7 @@ const addPet = (petInfo) => {
      setResult(response.data);
    })
    .catch((error) => {
-     setError('you selected an add pet option that failed');
+     setError('You selected an add pet option that failed');
    })
 };
 
