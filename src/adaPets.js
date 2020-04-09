@@ -9,16 +9,37 @@ const BASE_URL = 'http://localhost:3000/pets/';
 
 // Option functions.
 const listPets = () => {
-  // Fill out as part of Wave 1.
+  axios.get(BASE_URL)
+  .then((response) => {
+    setResult(response.data);
+  })
+  .catch((error) => {
+    setError(`There was an error retrieving the pets: Error ${error.response.status} `)
+  })
 };
 
+
 const showDetails = (selectedPetId) => {
+
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
-    
+  } else {
+    const params = {
+      id: selectedPetId
+    }
+
+    axios.get(BASE_URL, {
+      params: params
+    })
+    .then((response) => {
+    setResult(response.data[0])
+    })
+    .catch((error) => {
+      setError( `Test failed! ${error}`);
+    })
   }
 
-  // Fill out as part of Wave 2.
+  
 };
 
 const removePet = (selectedPetId) => {
