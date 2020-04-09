@@ -23,32 +23,43 @@ const listPets = () => {
 
 const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
-    axios.get(BASE_URL) 
+   setError("You tried to show details for a pet without selecting it!");
+  }
+  
+  // Fill out as part of Wave 2.
+  axios.get(`${BASE_URL}${selectedPetId}`) 
     .then((response) => {
       setResult(response.data);
-
     })
-  
     .catch((error) => { 
-      console.log(error, error.response);   
-   //setError("You tried to show details for a pet without selecting it!");
-  });
-  
+      setError('you selected a show details option that failed and status is 404'); 
+    });
+  }
 
-  // Fill out as part of Wave 2.
-};
 
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
-    
   }
-
   // Fill out as part of Wave 3.
+  axios.delete(`${BASE_URL}${selectedPetId}`)
+   .then((response) => {
+     setResult(response.data);
+   })
+   .catch((error) => {
+     setError('you selected a removed pet option that failed');
+   })
 };
 
 const addPet = (petInfo) => {
   // Fill out as part of Wave 4.
+  axios.post(BASE_URL, petInfo) 
+   .then((response) => {
+     setResult(response.data);
+   })
+   .catch((error) => {
+     setError('you selected an add pet option that failed');
+   })
 };
 
 // Use Node-style exports to export functions for tests and main.
