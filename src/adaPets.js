@@ -34,7 +34,6 @@ const showDetails = (selectedPetId) => {
   axios.get(BASE_URL + `${selectedPetId}`)
 
   .then((response) => {
-    console.log(`Result ---> `, response.data, typeof response.data);
     setResult(response.data);
   })
   
@@ -53,18 +52,33 @@ const removePet = (selectedPetId) => {
   axios.delete(BASE_URL + `${selectedPetId}`)
 
   .then((response) => {
-    console.log(`Result ---> `, response.data, typeof response.data);
     setResult(response.data);
   })
   
   .catch((error) => {
     setError(`${error.message} in remove for selected pet`);
   })
-  
+
 };
 
 const addPet = (petInfo) => {
-  // Fill out as part of Wave 4.
+
+  axios.post(BASE_URL, {
+      name: petInfo.name,
+      species: petInfo.species,
+      about: petInfo.about,
+      age: petInfo.age,
+      owner: petInfo.owner,
+  })
+
+  .then((response) => {
+    setResult(response.data);
+  })
+  
+  .catch((error) => {
+    setError(`${error.message} in add pet`);
+  })
+
 };
 
 // Node-style exports functions for tests and main
