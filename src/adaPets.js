@@ -52,8 +52,21 @@ const removePet = (selectedPetId) => {
 
 const addPet = (petInfo) => {
   // Fill out as part of Wave 4.
+
+  // to make the options to go into the main object rather than an options sub-object
+  if (petInfo.hasOwnProperty("options")) {
+    petInfo = {
+      name: petInfo.name,
+      species: petInfo.options.species,
+      age: petInfo.options.age,
+      owner: petInfo.options.owner,
+      about: petInfo.options.about,
+  }}
+
+
   axios.post((BASE_URL), petInfo)
   .then((response) => {
+    console.log(petInfo);
     setResult(response.data);
   })
   .catch((error) => {
