@@ -25,8 +25,6 @@ const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
   } else {
-    // const singlePetURL = BASE_URL + selectedPetId;
-    
     axios.get(BASE_URL + selectedPetId)
       .then((response) => {
         setResult(response.data);
@@ -42,8 +40,6 @@ const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
   } else {
-    // const singlePetURL = BASE_URL + selectedPetId.toString();
-    
     axios.delete(BASE_URL + selectedPetId)
       .then((response) => {
         setResult(response.data);
