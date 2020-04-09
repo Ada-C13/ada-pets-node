@@ -24,15 +24,10 @@ const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
   } else {
-    const params = {
-      id: selectedPetId
-    }
-
-    axios.get(BASE_URL, {
-      params: params
-    })
+    
+    axios.get(`http://localhost:3000/pets/${selectedPetId}`)
     .then((response) => {
-    setResult(response.data[0])
+    setResult(response.data)
     })
     .catch((error) => {
       setError( `Test failed! ${error}`);
