@@ -1,4 +1,3 @@
-// Use Node-style imports for dependencies.
 const vorpal = require('vorpal')();
 const result = require('./result.js');
 const adaPets = require('./adaPets.js');
@@ -30,7 +29,6 @@ const selectPet = (_, args) => {
   }
 }
 
-// Helper to log errors in red.
 const logError = (message) => {
   console.error(`\x1b[1;31m${ message }\x1b[0m`);
 }
@@ -57,7 +55,6 @@ const doAction = (action, resultCallback) => {
   }
 }
 
-// Register the options.
 vorpal.find('exit').remove();
 vorpal
   .command('exit', 'exits the program')
