@@ -12,7 +12,7 @@ const showDetails = adaPets.showDetails;
 // This sets the mock adapter on the default instance
 const mock = new MockAdapter(axios);
 
-describe('Wave 2', () => {
+xdescribe('Wave 2', () => {
   // Set up axios test responses.
   describe('showDetails', () => {
     it('Can show details for a pet', done => {
@@ -61,7 +61,7 @@ describe('Wave 2', () => {
     it('sets an error string when the response isn\'t successful', done => {
       // Arrange.
       // We want this to fail.
-      mock.onGet('https://localhost:3000/pets/1000000').reply(404);
+      mock.onGet('http://localhost:3000/pets/1000000').reply(404);
 
       expectError(error => {
         // Assert.
