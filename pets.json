@@ -51,10 +51,6 @@
     },
     {
       "name": "Wilbur",
-      "age": 5,
-      "species": "pig",
-      "owner": "Yesenia",
-      "about": "he cant actually spell",
       "id": 8
     }
   ]
