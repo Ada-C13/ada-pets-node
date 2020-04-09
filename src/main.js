@@ -1,7 +1,8 @@
 // Use Node-style imports for dependencies.
-const vorpal = require('vorpal')();
-const result = require('./result.js');
-const adaPets = require('./adaPets.js');
+const vorpal = require("vorpal")();
+const result = require("./result.js");
+const adaPets = require("./adaPets.js");
+const axios = require("axious").default;
 
 const setResult = result.setResult;
 const setError = result.setError;
@@ -13,84 +14,87 @@ const removePet = adaPets.removePet;
 const addPet = adaPets.addPet;
 
 const exit = () => {
-  setResult('Thank you for using the Ada Pets Adoption App!');
-  process.exit();
-}
+    setResult("Thank you for using the Ada Pets Adoption App!");
+    process.exit();
+};
 
 let selectedPetId = null;
 
 const selectPet = (_, args) => {
-  const petId = parseInt(args.petId, 10);
-  if (isNaN(petId)) {
-    setError('Please provide a number for petId got: ${args.petId}');
-  } else {
-    selectedPetId = petId;
-    setResult(petId);
-  }
-}
+    const petId = parseInt(args.petId, 10);
+    if (isNaN(petId)) {
+        setError("Please provide a number for petId got: ${args.petId}");
+    } else {
+        selectedPetId = petId;
+        setResult(petId);
+    }
+};
 
 // Helper to log errors in red.
 const logError = (message) => {
-  console.error(`\x1b[1;31m${ message }\x1b[0m`);
-}
+    console.error(`\x1b[1;31m${message}\x1b[0m`);
+};
 
 const doAction = (action, resultCallback) => {
-  return (args, done) => {
-    resultCallback = resultCallback || console.log;
+    return (args, done) => {
+        resultCallback = resultCallback || console.log;
 
-    const resultHandler = (result) => {
-      resultCallback(result);
-      done();
+        const resultHandler = (result) => {
+            resultCallback(result);
+            done();
+        };
+
+        const errorHandler = (error) => {
+            logError(error);
+            done();
+        };
+
+        setHandlers(
+            resultHandler,
+            errorHandler,
+            () => {
+                logError(
+                    "Command failed: Took more than three seconds to produce a result!"
+                );
+                done();
+            },
+            3000
+        );
+        action(selectedPetId, args);
     };
-
-    const errorHandler = (error) => {
-      logError(error);
-      done();
-    };
-
-    setHandlers(resultHandler, errorHandler, () => {
-      logError('Command failed: Took more than three seconds to produce a result!');
-      done();
-    }, 3000);
-    action(selectedPetId, args);
-  }
-}
+};
 
 // Register the options.
-vorpal.find('exit').remove();
-vorpal
-  .command('exit', 'exits the program')
-  .action(doAction(exit));
+vorpal.find("exit").remove();
+vorpal.command("exit", "exits the program").action(doAction(exit));
+
+vorpal.command("list pets", "list the pets from the API").action(
+    doAction(listPets, (pets) => {
+        pets.forEach((pet) => {
+            console.log(`${pet.id}: ${pet.name}`);
+        });
+    })
+);
 
 vorpal
-  .command('list pets', 'list the pets from the API')
-  .action(doAction(listPets, pets => {
-    pets.forEach(pet => {
-      console.log(`${ pet.id }: ${ pet.name }`);
-    });
-  }));
+    .command("select pet <petId>", "select the pet with <petId>")
+    .action(doAction(selectPet));
 
 vorpal
-  .command('select pet <petId>', 'select the pet with <petId>')
-  .action(doAction(selectPet));
+    .command("show details", "show the details for the selected pet")
+    .action(doAction(showDetails));
 
 vorpal
-  .command('show details', 'show the details for the selected pet')
-  .action(doAction(showDetails));
+    .command("remove pet", "remove the selected pet")
+    .action(doAction(removePet));
 
 vorpal
-  .command('remove pet', 'remove the selected pet')
-  .action(doAction(removePet));
+    .command("add a pet <name>", "add a new pet")
+    .option("-a, --age <age>", "The pet's age in years")
+    .option("-s, --species <species>", "The pet's species")
+    .option("-o, --owner <owner>", "The pet's owner")
+    .option("--about <about>", "About the pet")
+    .action(doAction((_, args) => addPet(args)));
 
-vorpal
-  .command('add a pet <name>', 'add a new pet')
-  .option('-a, --age <age>', 'The pet\'s age in years')
-  .option('-s, --species <species>', 'The pet\'s species')
-  .option('-o, --owner <owner>', 'The pet\'s owner')
-  .option('--about <about>', 'About the pet')
-  .action(doAction((_, args) => addPet(args)));
-
-vorpal.exec('help');
-vorpal
-  .delimiter('What would you like to do?')
-  .show();
+vorpal.exec("help");
+vorpal.delimiter("What would you like to do?").show();
