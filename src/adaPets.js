@@ -38,7 +38,7 @@ const removePet = (selectedPetId) => {
     axios.delete(BASE_URL + selectedPetId).then((response) => {
       setResult(response.data);
     }).catch((error) => {
-      setError(error.message);
+      setError("Failed to remove pet");
     })
   };
 };
