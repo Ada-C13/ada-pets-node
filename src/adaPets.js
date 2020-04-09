@@ -14,7 +14,7 @@ const listPets = () => {
 
   .then((response) => {
     allPets = response.data.map((petData) => (
-      { id: petData.id, name: petData.name }
+      { id: petData.id, name: petData.name } // no need to do this!!! response.data is enough
     ));
     setResult(allPets);
   })
