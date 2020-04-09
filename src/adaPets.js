@@ -47,13 +47,27 @@ const removePet = (selectedPetId) => {
 };
 
 const addPet = (petInfo) => {
-  axios.post(BASE_URL, {
-    name: petInfo.name,
-    species: petInfo.species,
-    age: petInfo.age,
-    owner: petInfo.owner,
-    about: petInfo.about
-  })
+  let params;
+  // if options object exists, parse through shape
+  if (petInfo.options) {
+    params = {
+      name: petInfo.name,
+      species: petInfo.options.species,
+      age: petInfo.options.age,
+      owner: petInfo.options.owner,
+      about: petInfo.options.about
+    };
+  } else {
+    params = {
+      name: petInfo.name,
+      species: petInfo.species,
+      age: petInfo.age,
+      owner: petInfo.owner,
+      about: petInfo.about
+    };
+  }
+  
+  axios.post(BASE_URL, params)
     .then((response) => {
       setResult(response.data);
     })

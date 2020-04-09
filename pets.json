@@ -50,28 +50,19 @@
       "owner": "Christine"
     },
     {
-      "species": "Cat",
-      "age": "2",
-      "name": "Sniffles",
-      "id": 13
-    },
-    {
-      "id": 14
-    },
-    {
-      "species": "Horse",
       "name": "Garlic",
-      "id": 15
+      "species": "horse",
+      "age": 2,
+      "about": "A fast race horse",
+      "id": 10
     },
     {
-      "species": "Horse",
-      "id": 16
-    },
-    {
-      "id": 17
-    },
-    {
-      "id": 18
+      "name": "Mighter",
+      "species": "Lion",
+      "age": 5,
+      "owner": "Krystal",
+      "about": "Found outside the zoo!",
+      "id": 11
     }
   ]
 }
