@@ -14,29 +14,33 @@ const listPets = () => {
     setResult(response.data);
   }).catch((error) => {
     setError(error.message);
-  })
+  });
 };
 
 const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");  
   } else {
-      // Fill out as part of Wave 2.
+    // Fill out as part of Wave 2.
     axios.get(BASE_URL + selectedPetId).then((response) => {
       setResult(response.data);
     }).catch((error) => {
       setError(error.message);
     })
-  } 
+  };
 };
 
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
-    setError("You tried to remove a pet without selecting it!");
-    
-  }
-
-  // Fill out as part of Wave 3.
+    setError("You tried to remove a pet without selecting it!");  
+  } else {
+    // Fill out as part of Wave 3.
+    axios.delete(BASE_URL + selectedPetId).then((response) => {
+      setResult(response.data);
+    }).catch((error) => {
+      setError(error.message);
+    })
+  };
 };
 
 const addPet = (petInfo) => {
