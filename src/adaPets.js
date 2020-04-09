@@ -12,6 +12,7 @@ const listPets = () => {
   axios.get(BASE_URL)
   .then((response) => {
     setResult(response.data);
+    
   })
   .catch((error) => {
     setError(`There was an error retrieving the pets: Error ${error.response.status} `)
@@ -40,10 +41,15 @@ const showDetails = (selectedPetId) => {
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
-    
+  } else {
+    axios.delete(`http://localhost:3000/pets/${selectedPetId}`)
+    .then(() => {
+    setResult(console.log(`The pet with ID: ${selectedPetId} has been adopted.`))
+    })
+    .catch((error) => {
+      setError( `Failed to remove pet. Error: ${error}`);
+    })
   }
-
-  // Fill out as part of Wave 3.
 };
 
 const addPet = (petInfo) => {
