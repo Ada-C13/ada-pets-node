@@ -12,7 +12,7 @@ const showDetails = adaPets.showDetails;
 // This sets the mock adapter on the default instance
 const mock = new MockAdapter(axios);
 
-xdescribe('Wave 2', () => {
+describe('Wave 2', () => {
   // Set up axios test responses.
   describe('showDetails', () => {
     it('Can show details for a pet', done => {
