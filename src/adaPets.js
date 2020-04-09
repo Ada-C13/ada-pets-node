@@ -12,48 +12,58 @@ const listPets = () => {
   axios.get(BASE_URL)
   .then((response) => {
     setResult(response.data);
-    
   })
   .catch((error) => {
-    setError(`There was an error retrieving the pets: Error ${error.response.status} `)
+    setError(`There was an error retrieving the pets: Error ${error.response.status} `);
   })
 };
-
 
 const showDetails = (selectedPetId) => {
 
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
   } else {
-    
-    axios.get(`http://localhost:3000/pets/${selectedPetId}`)
+    axios.get(BASE_URL + selectedPetId)
     .then((response) => {
-    setResult(response.data)
+      setResult(response.data);
     })
     .catch((error) => {
       setError( `Test failed! ${error}`);
     })
   }
-
-  
 };
 
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
   } else {
-    axios.delete(`http://localhost:3000/pets/${selectedPetId}`)
+    axios.delete(BASE_URL + selectedPetId)
     .then(() => {
-    setResult(console.log(`The pet with ID: ${selectedPetId} has been adopted.`))
+      setResult(`The pet with ID: ${selectedPetId} has been adopted.`);
     })
     .catch((error) => {
-      setError( `Failed to remove pet. Error: ${error}`);
+      setError(`Failed to remove pet. ${error}`);
     })
   }
 };
 
 const addPet = (petInfo) => {
-  // Fill out as part of Wave 4.
+  const params = {
+    name: petInfo.name,
+    age: petInfo.options.age,
+    species: petInfo.options.species,
+    owner: petInfo.options.owner,
+    about: petInfo.options.about
+  }
+  console.log(petInfo.options)
+  axios.post(BASE_URL, params)
+  
+  .then((response) => {
+    setResult(response.data);
+  })
+  .catch((error) => {
+    setError(`Failed to add pet. ${error}`);
+  })
 };
 
 // Use Node-style exports to export functions for tests and main.

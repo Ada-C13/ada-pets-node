@@ -43,11 +43,34 @@
       "owner": "Ada"
     },
     {
-      "id": 7,
       "name": "Rex",
-      "species": "Dog",
       "age": 9,
-      "owner": "Christine"
+      "species": "Dog",
+      "owner": "Christine",
+      "id": 7
+    },
+    {
+      "name": "Ginger",
+      "age": 13,
+      "species": "Dog",
+      "owner": "Yieni",
+      "about": "She was a good dog",
+      "id": 8
+    },
+    {
+      "name": "Genko",
+      "id": 9
+    },
+    {
+      "name": "Lynn",
+      "id": 10
+    },
+    {
+      "name": "Seth",
+      "age": 13,
+      "species": "Snake",
+      "owner": "John",
+      "id": 11
     }
   ]
 }
