@@ -14,13 +14,13 @@ const listPets = () => {
 
   .then((response) => {
     allPets = response.data.map((petData) => (
-      { id: petData.id, name: petData.name } // no need to do this!!! response.data is enough
+      { id: petData.id, name: petData.name } // mapping just the required fields
     ));
     setResult(allPets);
   })
 
   .catch((error) => {
-    setError(`There was an Error: ${error}`);
+    setError(`${error.message} in list pets`);
   })
 
 };
@@ -39,7 +39,7 @@ const showDetails = (selectedPetId) => {
   })
   
   .catch((error) => {
-    setError(`Failed: code ${error} in show details for selected pet`);
+    setError(`${error.message} in show details for selected pet`);
   })
 
 };
