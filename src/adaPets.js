@@ -11,10 +11,10 @@ const BASE_URL = 'http://localhost:3000/pets/';
 const listPets = () => {
   axios.get(BASE_URL)
   .then((response) => {
-    setResult(response.data) 
+    setResult(response.data); 
   })
   .catch((error) => {
-    setError(`An error has occurred from the API.`)
+    setError(`An error has occurred from the API.`);
   });
 };
 
@@ -22,10 +22,10 @@ const showDetails = (selectedPetId) => {
   
   axios.get(BASE_URL + selectedPetId)
   .then((response) => {
-    setResult(response.data)
+    setResult(response.data);
   })
   .catch((error) => {
-    setError(!selectedPetId ? "You tried to show details for a pet without selecting it!": `${error}`)
+    setError(!selectedPetId ? "You tried to show details for a pet without selecting it!": `${error}`);
   });
 
 };
@@ -33,18 +33,17 @@ const showDetails = (selectedPetId) => {
 const removePet = (selectedPetId) => {
   axios.delete(BASE_URL + selectedPetId)
   .then((response) => {
-    setResult(response.data)
-    // `Pet ${selectedPetId} has been adopted!`
+    setResult(response.data);
   })
   .catch((error) => {
-    setError(!selectedPetId ? "You tried to remove a pet without selecting it!": `${error}, pet not removed.`)
+    setError(!selectedPetId ? "You tried to remove a pet without selecting it!": `${error}, pet not removed.`);
   });
 };
 
 const addPet = (petInfo) => {
   axios.post(BASE_URL, petInfo)
   .then((response) => {
-    setResult(response.data)
+    setResult(response.data);
   })
   .catch((error) => {
     setError(`Add pet failed. An error has occurred from the API.`)
