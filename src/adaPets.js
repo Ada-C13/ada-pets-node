@@ -47,14 +47,14 @@ const removePet = (selectedPetId) => {
 };
 
 const addPet = (petInfo) => {
-  const body = {
-    // id: petInfo[id],
-    name: petInfo[name]
-    // age: petInfo[age],
-    // species: petInfo[species],
-    // about: petInfo[about]
-  };
-  axios.post(BASE_URL + body)
+  // const petObj = {
+  //   id: petInfo.id,
+  //   name: petInfo.name,
+  //   age: petInfo.age,
+  //   species: petInfo.species,
+  //   about: petInfo.about
+  // };
+  axios.post(BASE_URL, petInfo)
   .then((response) => {
     setResult(response.data);
   })

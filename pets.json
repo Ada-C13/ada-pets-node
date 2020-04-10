@@ -48,11 +48,6 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
-    },
-    {
-      "name": "Fancy",
-      "id": "12",
-      "species": "cat"
     }
   ]
 }
