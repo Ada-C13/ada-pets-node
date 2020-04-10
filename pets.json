@@ -22,13 +22,6 @@
       "owner": "Dee"
     },
     {
-      "id": 4,
-      "name": "Ruth",
-      "species": "Dog",
-      "age": 7,
-      "owner": "Crystal"
-    },
-    {
       "id": 5,
       "name": "Stinker",
       "species": "dog",
@@ -50,11 +43,24 @@
       "owner": "Christine"
     },
     {
-      "name": "gigi",
-      "species": "tortie cat",
-      "age": "2",
-      "owner": "ross",
+      "options": {},
+      "name": "Ruth",
+      "id": 8
+    },
+    {
+      "options": {},
+      "name": "Kitty",
+      "id": 9
+    },
+    {
+      "options": {},
+      "name": "Puppy",
       "id": 10
+    },
+    {
+      "options": {},
+      "name": "Gigi",
+      "id": 11
     }
   ]
 }
