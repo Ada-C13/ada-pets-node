@@ -19,15 +19,14 @@ const listPets = () => {
   })
   .catch((response) => {
     // handle error
-    setError(`wrong output ${response.error}`);
-    console.log(`wrong output ${response.error}`);
+    setError(`List pets failed with a ${response.response} response!`);
   })
   .then(function () {
     // always executed
+    console.log("list pets request is complete!");
   });
 };
 
-console.log(listPets());
 
 const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
@@ -41,15 +40,12 @@ const showDetails = (selectedPetId) => {
     })
     .catch((response) => {
       // handle error
-
-      setError(`/failed/i /${response.response.status}/ `);
-      // console.log(`wrong output ${response.status}`);
-      // console.log(`${BASE_URL}${selectedPetId}`);
-      // console.log(response.status);
-      // console.log(error);
+      setError(`show details failed: /${response.response.status}/ `);
+      console.log(`show details failed with a ${response.response.status} response!`)
     })
     .then(function () {
       // always executed
+      console.log("show details request is complete!");
     });
 
   }
@@ -67,19 +63,18 @@ const removePet = (selectedPetId) => {
     })
     .catch((response) => {
       // handle error
-      setError(`failed: could not remove pet `);
+      setError(`Remove pet failed with a ${response.response.status} response! `);
     })
     .then(function () {
       // always executed
+      console.log("remove pets request is complete!");
     });
   } 
 };
 
 const addPet = (petInfo) => {
   // Fill out as part of Wave 4.
-  console.log(petInfo);
   axios.post(BASE_URL,petInfo)
-  // ?name=${petInfo.name}&species=${petInfo.species}&about=${petInfo.about}
     .then((response) => {
       // handle success
       
@@ -87,10 +82,11 @@ const addPet = (petInfo) => {
     })
     .catch((response) => {
       // handle error
-      setError(`Test failed! ${response.error}, counld not add pet`);
+      setError(`Add pet failed with a ${response.response.status} response!`);
     })
     .then(function () {
       // always executed
+      console.log("add pet request is complete!");
     });
 
 };
