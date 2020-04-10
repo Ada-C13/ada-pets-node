@@ -13,7 +13,7 @@ const listPets = () => {
       setResult(response.data); 
     })
     .catch((error) => {
-      setError(error.message);
+      setError(`Failed to list pets: ${error}`);
     })
 };
 
@@ -26,7 +26,7 @@ const showDetails = (selectedPetId) => {
         setResult(response.data);
     })
     .catch((error) => {
-      setError(error.message);
+      setError(`Failed to show details for selected pet: ${error}`);
     });
   }
 };
@@ -34,14 +34,21 @@ const showDetails = (selectedPetId) => {
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
+    
+  } else {
+    axios.delete(BASE_URL + selectedPetId)
+    .then((result) => {
+      setResult(result.data)
+    })
+    .catch((error) => {
+      setError(`Failed to remove pet: ${error}`);
+    });
   }
-
-  // Fill out as part of Wave 3.
 };
 
 const addPet = (petInfo) => {
-  // Fill out as part of Wave 4.
-};
+
+}
 
 // Use Node-style exports to export functions for tests and main.
 module.exports = {
