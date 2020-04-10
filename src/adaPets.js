@@ -16,11 +16,11 @@ const listPets = () => {
     const allPets = response.data;
     allPets.forEach(pet => {
       pets.push({name: pet.name, id: pet.id})  
-    })    
+    });
     setResult(pets); 
   })
-  .catch(error => {    
-    setError('API call failed: ' + error.response.status + ' error')
+  .catch(error => {        
+    setError('API call failed: ' + error.status + ' error');    
   });
 };
 
@@ -54,7 +54,7 @@ const removePet = (selectedPetId) => {
 
 const addPet = (petInfo) => {
   axios.post(BASE_URL, petInfo)
-  .then(response => {    
+  .then(response => {        
     setResult(response.data); 
   })
   .catch(error => {
