@@ -50,12 +50,11 @@
       "owner": "Christine"
     },
     {
-      "options": {
-        "age": 10000,
-        "species": "Unicorn",
-        "owner": "none"
-      },
       "name": "Amalthea",
+      "age": 5000,
+      "species": "Unicorn",
+      "owner": "none",
+      "about": "She is the last.",
       "id": 8
     }
   ]
