@@ -50,8 +50,8 @@ const removePet = (selectedPetId) => {
 };
 
 const addPet = (petInfo) => {
-  let options = petInfo.options;
-  let flattenedInfo = { name: petInfo.name, ...options};
+  const options = petInfo.options;
+  const flattenedInfo = { name: petInfo.name, ...options};
   axios.post(BASE_URL, flattenedInfo)
   .then((response) => {
     setResult(response.data);
