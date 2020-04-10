@@ -16,16 +16,21 @@ const listPets = () => {
   .catch((error) => {
     setError("Listing pets returned failure response.");
   })
-  // Fill out as part of Wave 1.
 };
 
 const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
-    
+  } 
+  else {
+    axios.get(BASE_URL + selectedPetId)
+    .then((response) => {
+      setResult(response.data);
+    })
+    .catch((error) => {
+      setError("Request failed with 404");
+    })
   }
-
-  // Fill out as part of Wave 2.
 };
 
 const removePet = (selectedPetId) => {
