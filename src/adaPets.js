@@ -32,7 +32,9 @@ const showDetails = (selectedPetId) => {
             })
 
         .catch((error) => {
-            setError(`${error.message} in show details`);
+            setError(
+                `The following error ${error.message} occured in showing ${selectedPetId} details`
+            );
         });
     }
 
@@ -40,24 +42,34 @@ const showDetails = (selectedPetId) => {
 };
 
 const removePet = (selectedPetId) => {
+    // Fill out as part of Wave 3.
+    // had a syntax error in this wave I could fig out reference Kate M code to clear
     if (!selectedPetId) {
         setError("You tried to remove a pet without selecting it!");
     } else {
+        //make get call using selected id
         axios
             .delete(BASE_URL + `${selectedPetId}`)
             .then((response) => {
-                setResult(response.data);
+                setResult(`Pet ID: ${selectedPetId} was removed.`);
             })
-
-        .catch((error) => {
-            setError(`${error.message} removing selected pets`);
-        });
+            .catch((error) => {
+                setError(
+                    `Pet ID: ${selectedPetId} was failed and being removed and caused the following error ${error.message}`
+                );
+            });
     }
-    // Fill out as part of Wave 3.
 };
 
 const addPet = (petInfo) => {
-    // Fill out as part of Wave 4.
+    axios
+        .post(BASE_URL, petInfo)
+        .then((response) => {
+            setResult(response.data);
+        })
+        .catch((error) => {
+            setError(`${error.message}. Could not add ${petInfo.name}!`);
+        });
 };
 
 // Use Node-style exports to export functions for tests and main.
