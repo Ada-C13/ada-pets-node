@@ -79,16 +79,18 @@ Answer the following questions to guide through familiarizing yourself with the 
 Remember, all requests that we make have a verb and a path.
 
 1. What is the verb and path of the request to get a list of pets from this API?  
-1. The response of this request should be a list of pets. What kind of data structure is the list of pets? What is the status code of this request? Test it with Postman.
-1. What is the verb and path of the request to get the details of a single pet from this API?
-1. What are the query parameters of this request?
+  - get
+1. The response of this request should be a list of pets. What kind of data structure is 
+the list of pets? an array of objects. What is the status code of this request?  200. Test it with Postman.
+1. What is the verb and path of the request to get the details of a single pet from this API? get
+1. What are the query parameters of this request? pet_id
 1. Test with Postman:
-    - What kind of data structure is the details of a single, valid pet? What is the status code of this request?
-    - What do we get back if we give an invalid pet id? What is the status code of this request?
-1. What is the verb and path of the request to create a new pet using this API?
-1. What are the parameters we can pass into this request? Which parameters are required? Which are optional?
-1. When a pet is successfully created, we get back a response. What is the data structure of this response? What is the status code?
-1. After we create a pet, we can verify that the pet was created from the response. We can also verify that the pet was created and added to the list of pets another way. What else can we do?
+    - What kind of data structure is the details of a single, valid pet? Object.  What is the status code of this request? 200
+    - What do we get back if we give an invalid pet id? What is the status code of this request? 
+1. What is the verb and path of the request to create a new pet using this API? post.
+1. What are the parameters we can pass into this request? name, species, age, owner. Which parameters are required? name Which are optional? species, age, owner
+1. When a pet is successfully created, we get back a response. What is the data structure of this response? Object. What is the status code? 201 (created).
+1. After we create a pet, we can verify that the pet was created from the response. We can also verify that the pet was created and added to the list of pets another way. What else can we do? look in pets.json. 
 
 ### Important Provided Functions
 
