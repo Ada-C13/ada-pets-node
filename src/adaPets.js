@@ -19,7 +19,7 @@ const listPets = () => {
     setError(`List pets failed with a ${response.response} response!`);
   })
   .then(function () {
-    console.log("list pets request is complete!");
+    console.log("List pets request is complete!");
   });
 };
 
@@ -33,11 +33,10 @@ const showDetails = (selectedPetId) => {
       setResult(response.data);
     })
     .catch((response) => {
-      setError(`show details failed: /${response.response.status}/ `);
-      console.log(`show details failed with a ${response.response.status} response!`)
+      setError(`Show details failed: /${response.response.status}/ `);
     })
     .then(function () {
-      console.log("show details request is complete!");
+      console.log("Show details request is complete!");
     });
   }
 };
@@ -54,7 +53,7 @@ const removePet = (selectedPetId) => {
       setError(`Remove pet failed with a ${response.response.status} response! `);
     })
     .then(function () {
-      console.log("remove pets request is complete!");
+      console.log("Remove pets request is complete!");
     });
   } 
 };
@@ -68,7 +67,7 @@ const addPet = (petInfo) => {
       setError(`Add pet failed with a ${response.response.status} response!`);
     })
     .then(function () {
-      console.log("add pet request is complete!");
+      console.log("Add pet request is complete!");
     });
 
 };
