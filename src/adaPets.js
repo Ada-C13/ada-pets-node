@@ -15,44 +15,50 @@ const listPets = () => {
     setResult(response.data);
   })
   .catch((error) => {
-    setError("Not a valid HTTP call");
+    setError("Unable to list pets. ${error.message}.");
   });
 };
 
 const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
-    setError("You tried to show details for a pet without selecting it!");
-  }
+    setError("You tried to show details for a pet without selecting it. ${error.message}.") 
+  };
 
   // Fill out as part of Wave 2.
-  axios.get(BASE_URL + selectedPetId)
+  axios.get(BASE_URL+selectedPetId)
   .then((response) => {
     setResult(response.data);
   })
   .catch((error) => {
-    console.log(errorMessage);
-    setError ("Code 404 Fail")
+    setError ("ERROR 404: Failed to select and show details");
+  });
+}
 
+  // Fill out as part of Wave 3.
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
-    setError("You tried to remove a pet without selecting it!");
+    setError("You tried to remove a pet without selecting it");
   } 
-  // Fill out as part of Wave 3.
-  // call API
-  //removePet const
-  //setResult valid message
-  //setErroe error message
-  axios.delete(BASE_URL + selectedPetId)
-  .then{(response) =>{
-       setError("Pet already chosen");
-     }
-  }
+  axios.delete(BASE_URL+selectedPetId)
+    .then((response)=>{
+      setResult(console.log("Pet id:${selectedPetId} is removed!"));
+    })
+    .catch((error)=>{
+      setError(`Failed to remove or select error:${error}`);
+    });
 };
 
 const addPet = (petInfo) => {
   // Fill out as part of Wave 4.
-  //addPet const
+  axios.post(BASE_URL,petInfo)
+  .then((response) => {
+    setResult(response.data);
+  })
+  .catch((error) => {
+    setError("Failed to select and add a ne pet to the database");
+  })
 };
+
 
 // Use Node-style exports to export functions for tests and main.
 module.exports = {
