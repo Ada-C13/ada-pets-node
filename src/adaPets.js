@@ -22,10 +22,17 @@ const listPets = () => {
 const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
-    
   }
 
-  // Fill out as part of Wave 2.
+  const showDetailsURL = BASE_URL + selectedPetId
+ 
+  axios.get(showDetailsURL)
+    .then((response) => {
+      setResult(response.data)
+    })
+    .catch((error) => {
+      setError(`error code ${error.response.status}: failed to show details for the selected pet ID ${selectedPetId}`)
+    })
 };
 
 const removePet = (selectedPetId) => {
