@@ -15,12 +15,12 @@ const listPets = () => {
   .then(response => {   
     const allPets = response.data;
     allPets.forEach(pet => {
-      pets.push({name: pet.name, id: pet.id})  
-    });
+      pets.push({name: pet.name, id: pet.id});  
+    });        
     setResult(pets); 
   })
-  .catch(error => {        
-    setError('API call failed: ' + error.status + ' error');    
+  .catch(error => {    
+    setError('API call failed: ' + error.response.status + ' error')
   });
 };
 
@@ -32,7 +32,7 @@ const showDetails = (selectedPetId) => {
     .then(response => {      
       setResult(response.data); 
     })
-    .catch(error => {    
+    .catch(error => {          
       setError('API call failed: ' + error.response.status + ' error')
     });
   };
