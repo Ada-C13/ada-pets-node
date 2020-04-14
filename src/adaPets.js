@@ -34,22 +34,6 @@ const showDetails = (selectedPetId) => {
   };
 };
 
-//  else {
-//   params = {
-//     "id": selectedPetId
-//   }
-//   axios.get(BASE_URL, {
-//     params: params
-//   })
-//   .then((response) => {
-//     setResult(response.data[0])
-//   })
-//   .catch((error) => {
-//     console.log(error)
-//     setError('Error: Request failed with status code 404')
-//   })
-// }
-
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
