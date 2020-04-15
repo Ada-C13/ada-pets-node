@@ -22,7 +22,7 @@ let selectedPetId = null;
 const selectPet = (_, args) => {
   const petId = parseInt(args.petId, 10);
   if (isNaN(petId)) {
-    setError('Please provide a number for petId got: ${args.petId}');
+    setError('Please provide a number for petId! Got: ${args.petId}');
   } else {
     selectedPetId = petId;
     setResult(petId);

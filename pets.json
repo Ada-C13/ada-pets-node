@@ -48,6 +48,21 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
+    },
+    {
+      "name": "Garlic",
+      "species": "horse",
+      "age": 2,
+      "about": "A fast race horse",
+      "id": 10
+    },
+    {
+      "name": "Mighter",
+      "species": "Lion",
+      "age": 5,
+      "owner": "Krystal",
+      "about": "Found outside the zoo!",
+      "id": 11
     }
   ]
 }
