@@ -6,7 +6,7 @@ Congratulations! You're submitting your assignment. Please reflect on the assign
 
 Prompt | Response
 --- | ---
-What does it mean for code to be asynchronous? | 
-What is JSON? When was JSON used in your project? | 
-Describe what Postman is, and how to use it to test requests and responses. When is Postman most useful for a developer/for you? | 
-What kind of errors might the API give you? How did you check for errors? How did you choose to handle them? | 
+What does it mean for code to be asynchronous? | It is the relationship between two or more objects / functions that they don't necessarily rely on each other. Asynchronous means they can occur simultaneously.  
+What is JSON? When was JSON used in your project? | JavaScript Object Notation, a collection of name/value pairs called objects in JavaScript. 
+Describe what Postman is, and how to use it to test requests and responses. When is Postman most useful for a developer/for you? | It is a tool to test and create APIs. I normally use BASEURL to GET test the basic response and based on the API documentation I test the verbs (GET-POST-PUT-DELETE) with the different params. Is useful when I am starting a project, to understand how that API works and after I can start writing code based on the JSON response, at that time I know how to access by keys to what I need. 
+What kind of errors might the API give you? How did you check for errors? How did you choose to handle them? | 404 not found. I check what the response says. I catch them asynchronously when I am calling the API.  
