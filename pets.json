@@ -48,6 +48,20 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
+    },
+    {
+      "options": {
+        "age": 12,
+        "species": "cat",
+        "owner": "Nikki"
+      },
+      "name": "V",
+      "id": 8
+    },
+    {
+      "options": {},
+      "name": "cuddles",
+      "id": 9
     }
   ]
 }
