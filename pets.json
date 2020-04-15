@@ -48,6 +48,36 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
+    },
+    {
+      "name": "andrew",
+      "species": "Dog",
+      "age": 13,
+      "owner": "julie",
+      "id": 8
+    },
+    {
+      "options": {},
+      "name": "oscar",
+      "id": 9
+    },
+    {
+      "options": {
+        "age": 9,
+        "species": "cat",
+        "owner": "santa"
+      },
+      "name": "elf",
+      "id": 10
+    },
+    {
+      "options": {
+        "age": 100,
+        "species": "dog",
+        "owner": "lulu"
+      },
+      "name": "Harry",
+      "id": 11
     }
   ]
 }
