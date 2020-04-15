@@ -29,13 +29,6 @@
       "owner": "Crystal"
     },
     {
-      "id": 5,
-      "name": "Stinker",
-      "species": "dog",
-      "age": 14,
-      "owner": "Chris"
-    },
-    {
       "id": 6,
       "name": "Coco",
       "species": "Dog",
@@ -48,6 +41,40 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
+    },
+    {
+      "name": "spidey-man",
+      "species": "cat",
+      "age": "13",
+      "owner": "mom",
+      "id": 11
+    },
+    {
+      "name": "Harry",
+      "species": "doggy",
+      "age": "2",
+      "owner": "Doug",
+      "id": 12
+    },
+    {
+      "options": {},
+      "name": "name:",
+      "id": 13
+    },
+    {
+      "options": {},
+      "name": "options",
+      "id": 14
+    },
+    {
+      "options": {},
+      "name": "charlie",
+      "id": 15
+    },
+    {
+      "options": {},
+      "name": "rebel",
+      "id": 16
     }
   ]
 }
