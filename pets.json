@@ -48,6 +48,11 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
+    },
+    {
+      "options": {},
+      "name": "max",
+      "id": 8
     }
   ]
 }
