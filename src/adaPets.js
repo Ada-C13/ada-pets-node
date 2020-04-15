@@ -13,7 +13,7 @@ const listPets = () => {
   axios.get(BASE_URL)
 
   .then((response) => {
-    allPets = response.data.map((petData) => (
+    const allPets = response.data.map((petData) => (
       { id: petData.id, name: petData.name } // mapping just the required fields
     ));
     setResult(allPets);
