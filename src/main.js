@@ -1,3 +1,6 @@
+//src/main.js is the actual driver code for the CLI app. 
+//If you want to manually test your code you can use this
+
 // Use Node-style imports for dependencies.
 const vorpal = require('vorpal')();
 const result = require('./result.js');
