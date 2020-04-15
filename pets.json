@@ -48,6 +48,22 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
+    },
+    {
+      "name": "dusty",
+      "speices": "dog",
+      "age": "2",
+      "owner": "Hannnah",
+      "id": 8
+    },
+    {
+      "options": {
+        "age": 5,
+        "species": "cat",
+        "owner": "Goofy"
+      },
+      "name": "otter",
+      "id": 9
     }
   ]
 }
