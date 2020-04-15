@@ -48,6 +48,26 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
+    },
+    {
+      "id": "9",
+      "owner": "WubA",
+      "name": "Rocky",
+      "species": "suma",
+      "age": "2"
+    },
+    {
+      "id": "8",
+      "owner": "Hannah",
+      "name": "Sugarplum",
+      "species": "mutt",
+      "age": "9"
+    },
+    {
+      "owner": "WubA",
+      "name": "Rocky",
+      "species": "suma",
+      "id": "6xYVawp"
     }
   ]
 }
