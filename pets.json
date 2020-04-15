@@ -1,11 +1,10 @@
 {
   "pets": [
     {
-      "id": 1,
-      "name": "Everly B",
-      "species": "Dog",
-      "age": 13,
-      "owner": "Kari"
+      "name": "angrycat",
+      "age": "6",
+      "species": "demon",
+      "id": 1
     },
     {
       "id": 2,
@@ -48,6 +47,102 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
+    },
+    {
+      "options": {},
+      "name": "Tiki",
+      "id": 8
+    },
+    {
+      "options": {
+        "age": 6,
+        "species": "cat",
+        "owner": "Jessica"
+      },
+      "name": "Tiki",
+      "id": 9
+    },
+    {
+      "options": {
+        "age": 6,
+        "species": "cat",
+        "owner": "Jessica"
+      },
+      "name": "Tiki",
+      "id": 10
+    },
+    {
+      "name": "tiki",
+      "id": 11
+    },
+    {
+      "name": "tiki",
+      "species": "cat",
+      "owner": "jessica",
+      "age": 7,
+      "id": 12
+    },
+    {
+      "name": "tiki",
+      "species": "cat",
+      "owner": "jessica",
+      "about": "angry",
+      "age": 7,
+      "id": 13
+    },
+    {
+      "name": "tiki",
+      "species": "cat",
+      "owner": "jessica",
+      "about": "angry",
+      "age": 6,
+      "id": 14
+    },
+    {
+      "options": {
+        "age": 5,
+        "owner": "jessica"
+      },
+      "name": "Tiki",
+      "id": 15
+    },
+    {
+      "options": {
+        "about": "blah"
+      },
+      "name": "blah",
+      "id": 16
+    },
+    {
+      "options": {
+        "age": 6,
+        "about": "blah"
+      },
+      "name": "blah",
+      "id": 17
+    },
+    {
+      "options": {
+        "about": "blah blah blah"
+      },
+      "name": "tiki",
+      "id": 18
+    },
+    {
+      "options": {
+        "age": 5,
+        "species": "Cat",
+        "owner": "Becca",
+        "about": "This"
+      },
+      "name": "is",
+      "id": 19
+    },
+    {
+      "name": "Tiki",
+      "age": "6",
+      "species": "cat",
+      "id": 20
     }
   ]
 }
