@@ -48,6 +48,24 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
+    },
+    {
+      "id": 8,
+      "name": "Barsik",
+      "species": "Cat",
+      "age": 3,
+      "owner": "Nastya"
+    },
+    {
+      "name": "Bobik",
+      "id": 9
+    },
+    {
+      "age": 4,
+      "id": 10
+    },
+    {
+      "id": 11
     }
   ]
 }
