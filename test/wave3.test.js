@@ -1,11 +1,11 @@
-const axios = require('axios'); // Import axios.
-const MockAdapter = require('axios-mock-adapter'); // This is kind of like VCR.
+const axios = require("axios"); // Import axios.
+const MockAdapter = require("axios-mock-adapter"); // This is kind of like VCR.
 
 // Import helper functions.
-const {expectResult, expectError} = require('./helper.js');
+const { expectResult, expectError } = require("./helper.js");
 
 // Import our function(s) for testing.
-const adaPets = require('../src/adaPets.js');
+const adaPets = require("../src/adaPets.js");
 
 const removePet = adaPets.removePet;
 
@@ -13,16 +13,16 @@ const removePet = adaPets.removePet;
 const mock = new MockAdapter(axios);
 
 const fail = (error) => {
-  throw new Error(`Test failed! ${ error }`);
+  throw new Error(`Test failed! ${error}`);
 };
 
-describe('Wave 3', () => {
+describe("Wave 3", () => {
   // Set up axios test responses.
-  describe('removePet', () => {
-    it('Can remove a pet', done => {
+  describe("removePet", () => {
+    it("Can remove a pet", (done) => {
       // Arrange.
       // Set up what we want the API to return for this test.
-      mock.onDelete('http://localhost:3000/pets/3').reply(204);
+      mock.onDelete("http://localhost:3000/pets/3").reply(204);
 
       // Assertions come first because they need to be ready before the function call.
       expectResult(
@@ -33,12 +33,12 @@ describe('Wave 3', () => {
       removePet(3);
     });
 
-    it('sets an error string when there is no selected pet', done => {
-      expectError(error => {
+    it("sets an error string when there is no selected pet", (done) => {
+      expectError((error) => {
         // Assert.
         expect(error.constructor).toBe(String);
-        expect(error).toMatch('remove');
-        expect(error).toMatch('select');
+        expect(error).toMatch("remove");
+        expect(error).toMatch("select");
 
         done();
       });
@@ -47,12 +47,12 @@ describe('Wave 3', () => {
       removePet();
     });
 
-    it('sets an error string when the response isn\'t successful', done => {
+    it("sets an error string when the response isn't successful", (done) => {
       // Arrange.
       // We want this to fail.
-      mock.onDelete('https://localhost:3000/pets/1000000').reply(404);
+      mock.onDelete("http://localhost:3000/pets/1000000").reply(404);
 
-      expectError(error => {
+      expectError((error) => {
         // Assert.
         expect(error).toMatch(/failed/i);
         expect(error).toMatch(/remove/i);

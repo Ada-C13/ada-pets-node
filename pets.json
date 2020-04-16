@@ -48,6 +48,15 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
+    },
+    {
+      "options": {
+        "age": 4,
+        "species": "dog",
+        "owner": "Benjamin"
+      },
+      "name": "Brownie",
+      "id": 8
     }
   ]
 }
