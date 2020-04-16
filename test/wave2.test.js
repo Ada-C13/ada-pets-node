@@ -30,7 +30,7 @@ describe('Wave 2', () => {
       expectResult(result => {
         // Assert.
         expect(result).toBeInstanceOf(Object);
-
+        
         expect(result.id).toBe(3);
         expect(result.name).toBe('Cerberus');
         expect(result.species).toBe('dog');
