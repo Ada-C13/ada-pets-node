@@ -7,9 +7,16 @@ const setError = result.setError;
 
 const BASE_URL = 'http://localhost:3000/pets/';
 
-// Option functions.
+
 const listPets = () => {
-  // Fill out as part of Wave 1.
+  axios.get(BASE_URL)
+    .then((response) => {
+      setResult(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+      setError(`API error:${error.response}`);
+    });
 };
 
 const showDetails = (selectedPetId) => {
@@ -19,6 +26,18 @@ const showDetails = (selectedPetId) => {
   }
 
   // Fill out as part of Wave 2.
+  axios.get(BASE_URL)
+  .then((response) => {
+    // if (selectedPetId > response.data.length - 1 || selectedPetId < 0) {
+    //   console.log("Invalid pet id");
+    // } else {}
+    setResult(response.data[selectedPetId - 1]);
+    
+  })
+  .catch((error) => {
+    console.log(error);
+    setError(`API error:${error.response}`);
+  });
 };
 
 const removePet = (selectedPetId) => {
